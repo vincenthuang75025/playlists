@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Router } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
+import NavBar from "./modules/NavBar.js";
 
 import "../utilities.css";
 
-// import { socket } from "../client-socket.js";
+import { socket } from "../client-socket.js";
 
 import { get, post } from "../utilities";
 
@@ -29,7 +30,7 @@ const App = () => {
     console.log(`Logged in as ${res.profileObj.name}`);
     post("/api/login", { token: res.tokenObj.id_token }).then((user) => {
       setUserId(user._id);
-      // post("/api/initsocket", { socketid: socket.id });
+      post("/api/initsocket", { socketid: socket.id });
     });
   };
 
@@ -40,11 +41,14 @@ const App = () => {
 
   return (
     <>
+      <NavBar
+          handleLogin={handleLogin}
+          handleLogout={handleLogout}
+          userId={userId}
+          />
       <Router>
         <Skeleton
           path="/"
-          handleLogin={handleLogin}
-          handleLogout={handleLogout}
           userId={userId}
         />
         <NotFound default />
