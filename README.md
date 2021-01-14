@@ -1,5 +1,3 @@
-# Project Skeleton
-
 ## What we provide
 
 - Google Auth (Skeleton.js & auth.js)
