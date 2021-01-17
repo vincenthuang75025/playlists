@@ -60,30 +60,32 @@ const AddSong = (props) => {
     return (
     <>
     <div className="AddSong-wrapper">
-    <input id="url" onChange={handleUrlChange} placeholder="Paste youtube url here"/>
+    <input id="url" onChange={handleUrlChange} placeholder="Paste youtube url here" className="AddSong-wide"/>
     <form className="AddSong-form">
-        <div>
+        <div className="AddSong-row">
             <label>Choose an attribute to describe: </label>
             <select name="attr" id="attr" onChange={handleAttrChange}>
                 <option key={-1} value={"None"}>None</option>
                 {attrs.map((attr,i) => <option key={i} value={attrs.attribute}>{attr.attribute} </option>)}
             </select>
         </div>
-        <div>
-            <label>Choose a value to give the attribute: </label>
-            <input id="attrValue" onChange={handleValueChange} placeholder="Put value here"/>
-            <button type="submit" value="Submit" className="AddSong-button" onClick={handleValueSubmit}>
+        <div className="u-flexColumn">
+            <div className="AddSong-row">
+                <label>Choose a value to give the attribute: </label>
+                <input id="attrValue" onChange={handleValueChange} placeholder="Put value here"/>
+            </div>
+            <button type="submit" value="Submit" className="AddSong-button AddSong-small" onClick={handleValueSubmit}>
                 Submit Value
             </button>
         </div>
     </form>
-    <button type="submit" value="Submit" className="AddSong-button" onClick={handleSubmit}>
-            Submit Song
-    </button>
     <div className="u-bold">
         Current attributes
     </div>
-    {values.map((value, i) => <div key={-i}>{value[0]}: {value[1]}</div>)}
+    {(values.length === 0) ? <div>No attributes yet -- add some!</div>: values.map((value, i) => <div key={-i}>{value[0]}: {value[1]}</div>)}
+    <button type="submit" value="Submit" className="AddSong-button AddSong-right" onClick={handleSubmit}>
+        Submit Song
+    </button>
     </div>
      </>
     );

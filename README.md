@@ -13,6 +13,10 @@ handle edits and deletes
 
 don't let song submit multiple of same attribute
 
+hide everything in logged out state
+
+sanitize form inputs eg. yt url and display alerts to user for fail conditions
+
 oof
 
 ## Socket stuff
