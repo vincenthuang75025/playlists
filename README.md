@@ -9,7 +9,7 @@
 
 make the button indicate what option you selected
 
-handle edits and deletes
+handle edits and deletes (for songs and attributes)
 
 don't let song submit multiple of same attribute
 

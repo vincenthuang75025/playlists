@@ -4,6 +4,7 @@ import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
 import Organizer from "./pages/Organizer.js";
 import NavBar from "./modules/NavBar.js";
+import Listen from "./pages/Listen.js";
 
 import "../utilities.css";
 
@@ -56,7 +57,7 @@ const App = () => {
           path="/songs"
           userId={userId}
         />
-        <Skeleton
+        <Listen
           path="/listen"
           userId={userId}
         />
