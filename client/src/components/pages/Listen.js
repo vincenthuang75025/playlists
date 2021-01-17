@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import "../../utilities.css";
 import "./Listen.css";
-import AddAttribute from "../modules/AddAttribute.js";
-import AddSong from "../modules/AddSong.js";
+import QuerySong from "../modules/QuerySong.js";
 
 /**
  * The song and category Listen.
@@ -10,13 +9,17 @@ import AddSong from "../modules/AddSong.js";
  */
 const Listen = (props) => {
     const [ready, setReady] = useState(false);
+    const [songs, setSongs] = useState([]);
 
     return (
-      <>
-        <div>
-        test?{ready}
-        </div>
-      </>
+    <>
+    {
+        {
+          false: <QuerySong userId={props.userId}/>,
+          true: <div>list of songs</div>
+        }[ready]
+    }
+    </>
     );
   }
   

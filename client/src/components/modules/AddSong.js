@@ -80,7 +80,7 @@ const AddSong = (props) => {
         </div>
     </form>
     <div className="u-bold">
-        Current attributes
+        Current Attributes
     </div>
     {(values.length === 0) ? <div>No attributes yet -- add some!</div>: values.map((value, i) => <div key={-i}>{value[0]}: {value[1]}</div>)}
     <button type="submit" value="Submit" className="AddSong-button AddSong-right" onClick={handleSubmit}>
