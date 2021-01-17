@@ -12,6 +12,7 @@ const express = require("express");
 // import models so we can interact with the database
 const User = require("./models/user");
 const Attribute = require("./models/attribute");
+const Song = require("./models/song");
 
 // import authentication library
 const auth = require("./auth");
@@ -55,6 +56,11 @@ router.post("/newattribute", (req, res) => {
   });
   newAttr.save().then((newAttr) => res.send(newAttr));
 });
+
+router.post("/newsong", (req,res) => {
+  const newSong = new Song(req.body);
+  newSong.save().then((newSong) => res.send(newSong));
+})
 
 router.all("*", (req, res) => {
   console.log(`API route not found: ${req.method} ${req.url}`);

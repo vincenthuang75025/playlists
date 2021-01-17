@@ -11,6 +11,8 @@ make the button indicate what option you selected
 
 handle edits and deletes
 
+don't let song submit multiple of same attribute
+
 oof
 
 ## Socket stuff

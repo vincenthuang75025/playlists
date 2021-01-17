@@ -1,4 +1,4 @@
-.AddAttribute-button {
+.AddSong-button {
     background-color: transparent;
     color: black;
     width: 0.5;
@@ -7,26 +7,26 @@
     outline: none;
 }
 
-.AddAttribute-button:hover {
+.AddSong-button:hover {
     cursor: pointer;
     background-color: gray;
 }
 
-.AddAttribute-wrapper {
-    font-size: 20px;
-    width: 100%;
+.AddSong-wrapper {
+    font-size: 16px;
+    width: 40%;
     position: relative;
     left: 30%;
-}
-
-.AddAttribute-form {
-    font-size: 16px;
-    display: flex;
-    flex-direction: row;
     margin: 20px;
 }
 
-.AddAttribute-elem {
+.AddSong-form {
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.AddSong-elem {
     position: relative;
     left: 10%;
 }
