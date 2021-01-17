@@ -36,10 +36,6 @@ const QuerySong = (props) => {
         }
     }
 
-    const handleUrlChange = (event) => {
-        setUrl(event.target.value);
-    }
-
     const handleValueChange = (event) => {
         setValue(event.target.value);
     }
@@ -97,8 +93,8 @@ const QuerySong = (props) => {
     <div className="u-bold">
         Current Conditions
     </div>
-    {(values.length === 0) ? <div>No conditions yet -- add some!</div> values.map((value, i) => <div key={-i}>{value[0]}: {value[1]} {value[2]}</div>)}
-    <button type="submit" value="Submit" className="QuerySong-button QuerySong-right" onClick={handleSubmit}>
+    {(values.length === 0) ? <div>No conditions yet -- add some!</div>: values.map((value, i) => <div key={-i}>{value[0]} {value[1]} {value[2]}</div>)}
+    <button type="submit" value="Submit" className="QuerySong-button QuerySong-right" onClick={(event) => props.handleQuerySubmit(event, values, props.userId)}>
         Submit Query
     </button>
     </div>

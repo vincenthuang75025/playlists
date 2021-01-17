@@ -49,6 +49,10 @@ router.get("/attributes", (req, res) => {
   Attribute.find({ googleid: req.query.googleid }).then((attr) => res.send(attr));
 });
 
+router.get("/findsongs", (req, res) => {
+  Song.find(req.body).then((songs) => res.send(songs));
+});
+
 router.post("/newattribute", (req, res) => {
   const newAttr = new Attribute({
     attribute: req.body.attribute,
