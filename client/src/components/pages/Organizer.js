@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import "../../utilities.css";
 import "./Organizer.css";
 import AddAttribute from "../modules/AddAttribute.js";
+import AddSong from "../modules/AddSong.js";
 
 /**
  * The song and category organizer.
@@ -13,12 +14,12 @@ const Organizer = (props) => {
     return (
       <>
         <div className="Organizer-container">
-        <button className="Organizer-button" onClick={() => setSubject("songs")}>Manage Songs
+        <button className={(subject === "songs") ? "Organizer-button-active" : "Organizer-button"} onClick={() => setSubject("songs")}>Manage Songs
         </button>
-        <button className="Organizer-button" onClick={() => setSubject("attributes")}>Manage Attributes
+        <button className={(subject === "attributes") ? "Organizer-button-active" : "Organizer-button"} onClick={() => setSubject("attributes")}>Manage Attributes
         </button>
         </div>
-        {subject === 'attributes' ? <AddAttribute userId={props.userId}/> : 'Add songs (TODO)'}
+        {subject === 'attributes' ? <AddAttribute userId={props.userId}/> : <AddSong userId={props.userId}/>}
       </>
     );
   }
