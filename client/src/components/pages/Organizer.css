@@ -1,0 +1,21 @@
+.Organizer-container {
+    display: flex;
+    flex-direction: row;
+    padding: var(--s) var(--m);
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.Organizer-button {
+    background-color: transparent;
+    color: black;
+    width: 0.5;
+    font-size: 24px;
+    border-radius: 10px;
+    outline: none;
+}
+
+.Organizer-button:hover {
+    cursor: pointer;
+    background-color: gray;
+}

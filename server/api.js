@@ -11,6 +11,7 @@ const express = require("express");
 
 // import models so we can interact with the database
 const User = require("./models/user");
+const Attribute = require("./models/attribute");
 
 // import authentication library
 const auth = require("./auth");
@@ -43,6 +44,18 @@ router.post("/initsocket", (req, res) => {
 // |------------------------------|
 
 // anything else falls to this "not found" case
+router.get("/attributes", (req, res) => {
+  Attribute.find({ googleid: req.query.googleid }).then((attr) => res.send(attr));
+});
+
+router.post("/newattribute", (req, res) => {
+  const newAttr = new Attribute({
+    attribute: req.body.attribute,
+    googleid: req.body.googleid,
+  });
+  newAttr.save().then((newAttr) => res.send(newAttr));
+});
+
 router.all("*", (req, res) => {
   console.log(`API route not found: ${req.method} ${req.url}`);
   res.status(404).send({ msg: "API route not found" });

@@ -1,0 +1,32 @@
+.AddAttribute-button {
+    background-color: transparent;
+    color: black;
+    width: 0.5;
+    font-size: 20px;
+    border-radius: 10px;
+    outline: none;
+}
+
+.AddAttribute-button:hover {
+    cursor: pointer;
+    background-color: gray;
+}
+
+.AddAttribute-wrapper {
+    font-size: 20px;
+    width: 100%;
+    position: relative;
+    left: 30%;
+}
+
+.AddAttribute-form {
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+}
+
+.AddAttribute-elem {
+    position: relative;
+    left: 10%;
+}

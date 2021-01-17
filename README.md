@@ -5,6 +5,12 @@
   - Disclaimer: Socket isn't being taught until the second week.
 - User Model (auth.js & user.js)
 
+make the button indicate what option you selected
+
+handle edits and deletes
+
+oof
+
 ## What you need to change
 
 - Change the font in utilities.css

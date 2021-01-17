@@ -16,26 +16,26 @@ const NavBar = (props) => {
     return (
     <>
       <nav className="NavBar-container">
-        <Link to="/" className="NavBar-title u-inlineBlock NavBar-Mainlink LinkNotDecorated">
-          Spotify 2.0
+        <Link to="/" className="NavBar-title u-inlineBlock NavBar-Mainlink NavBar-link">
+          Playlists
         </Link>
         <div className="NavBar-linkContainer u-inlineBlock">
-          <Link to="/" className="NavBar-link">
-            Add a song!
+          <Link to="/songs" className="NavBar-link">
+            Organize songs
           </Link>
           {props.userId && (
-            <Link to={`/profile/${props.userId}`} className="NavBar-link">
+            <Link to="/listen" className="NavBar-link">
               Listen
             </Link>
           )}
           {props.userId && (
-            <Link to={`/NewEventInput/`} className="NavBar-link">
-              Recents
+            <Link to="/data" className="NavBar-link">
+              Analytics
             </Link>
           )}
           {props.userId && (
-            <Link to={`/ManageEvents/`} className="NavBar-link">
-              Analytics
+            <Link to="/import" className="NavBar-link">
+              Import from x
             </Link>
           )}
         </div>

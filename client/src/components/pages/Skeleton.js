@@ -12,10 +12,10 @@ const Skeleton = (props) => {
   return (
     <>
       <div>
-        {props.text}
+        playlist bad
       </div>
       <div>
-        {props.userId ? 'hi' : 'bye'}
+        {props.userId ? 'logged in' : 'logged out'}
       </div>
     </>
   );

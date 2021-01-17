@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Router } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
+import Organizer from "./pages/Organizer.js";
 import NavBar from "./modules/NavBar.js";
 
 import "../utilities.css";
@@ -49,6 +50,22 @@ const App = () => {
       <Router>
         <Skeleton
           path="/"
+          userId={userId}
+        />
+        <Organizer
+          path="/songs"
+          userId={userId}
+        />
+        <Skeleton
+          path="/listen"
+          userId={userId}
+        />
+        <Skeleton
+          path="/data"
+          userId={userId}
+        />
+        <Skeleton
+          path="/import"
           userId={userId}
         />
         <NotFound default />
