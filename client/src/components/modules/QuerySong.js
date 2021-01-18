@@ -23,19 +23,6 @@ const QuerySong = (props) => {
         });
     });
 
-    const handleSubmit = () => {
-        if (url.length !== 0 && values.length !== 0) {
-            let q = {'googleid': props.userId, 'url': url};
-            values.forEach((item, _) => q[item[0]] = item[1]);
-            post("/api/newsong", q).then((resp) => {
-                console.log(resp);
-            });
-            setUrl("");
-            setValues([]);
-            document.getElementById("url").value="";
-        }
-    }
-
     const handleValueChange = (event) => {
         setValue(event.target.value);
     }
@@ -93,7 +80,9 @@ const QuerySong = (props) => {
     <div className="u-bold">
         Current Conditions
     </div>
+    <div>
     {(values.length === 0) ? <div>No conditions yet -- add some!</div>: values.map((value, i) => <div key={-i}>{value[0]} {value[1]} {value[2]}</div>)}
+    </div>
     <button type="submit" value="Submit" className="QuerySong-button QuerySong-right" onClick={(event) => props.handleQuerySubmit(event, values, props.userId)}>
         Submit Query
     </button>

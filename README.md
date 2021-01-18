@@ -17,6 +17,8 @@ hide everything in logged out state
 
 sanitize form inputs eg. yt url and display alerts to user for fail conditions
 
+convert watch, mobile, etc. to embed
+
 oof
 
 ## Socket stuff

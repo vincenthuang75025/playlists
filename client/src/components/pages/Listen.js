@@ -34,8 +34,11 @@ const Listen = (props) => {
                 }
                 setReady(true);
                 get("/api/findsongs", q).then((songs) => {
+                    console.log(songs);
+                    let urlList = [];
                     for(const i in songs) {
-                        setUrls([...urls, songs[i].url]);
+                        urlList = [...urlList, songs[i].url];
+                        setUrls(urlList);
                     }
                 });
             }
@@ -48,7 +51,8 @@ const Listen = (props) => {
     {
         {
           false: <QuerySong userId={props.userId} handleQuerySubmit={handleQuerySubmit}/>,
-          true: urls.map((url, i) => <div key={-i}>{url}</div>)
+          true: <div className='u-flexColumn'>{urls.map((url, i) => <iframe key={-i} src={url} height='100' width='100' allow='autoplay; encrypted-media' title='video'/>)}</div>
+          //true: urls.map((url,i) => <div>{url}</div>)
         }[ready]
     }
     </>
