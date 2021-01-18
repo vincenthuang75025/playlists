@@ -33,8 +33,7 @@ const Listen = (props) => {
                     }
                 }
                 setReady(true);
-                get("/api/findsongs", q).then((songs) => {
-                    console.log(songs);
+                post("/api/findsongs", q).then((songs) => {
                     let urlList = [];
                     for(const i in songs) {
                         urlList = [...urlList, songs[i].url];

@@ -49,7 +49,7 @@ router.get("/attributes", (req, res) => {
   Attribute.find({ googleid: req.query.googleid }).then((attr) => res.send(attr));
 });
 
-router.get("/findsongs", (req, res) => {
+router.post("/findsongs", (req, res) => {
   Song.find(req.body).then((songs) => res.send(songs));
 });
 
