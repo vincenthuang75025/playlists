@@ -1,8 +1,9 @@
-import React, {useState, useCallback} from "react";
+import React, {useState, useCallback, useEffect} from "react";
 import "../../utilities.css";
 import "./Listen.css";
 import QuerySong from "../modules/QuerySong.js";
 import { get, post } from "../../utilities";
+import YouTube from "react-youtube";
 
 /**
  * The song and category Listen.
@@ -11,6 +12,18 @@ import { get, post } from "../../utilities";
 const Listen = (props) => {
     const [ready, setReady] = useState(false);
     const [urls, setUrls] = useState([]);
+
+    // const [test, setTest] = useState(0);
+    const [ind, setInd] = useState(0);
+    const [vidId, setVidId] = useState("");
+
+    useEffect(() => {
+        if (urls.length > 0) {
+        let arr = urls[ind].split('/');
+        setVidId(arr[arr.length-1]);
+        console.log(vidId);
+        }
+    })
 
     const handleQuerySubmit = useCallback(
         (event, values, id) => {
@@ -50,8 +63,7 @@ const Listen = (props) => {
     {
         {
           false: <QuerySong userId={props.userId} handleQuerySubmit={handleQuerySubmit}/>,
-          true: <div className='u-flexColumn'>{urls.map((url, i) => <iframe key={-i} src={url} height='100' width='100' allow='autoplay; encrypted-media' title='video'/>)}</div>
-          //true: urls.map((url,i) => <div>{url}</div>)
+          true: <YouTube videoId={vidId} opts={{playerVars: {autoplay: 1,},}} onEnd={() => {setInd((ind+1) % urls.length)}}/>
         }[ready]
     }
     </>
