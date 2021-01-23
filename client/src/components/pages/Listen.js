@@ -63,7 +63,9 @@ const Listen = (props) => {
     {
         {
           false: <QuerySong userId={props.userId} handleQuerySubmit={handleQuerySubmit}/>,
-          true: <YouTube videoId={vidId} opts={{playerVars: {autoplay: 1,},}} onEnd={() => {setInd((ind+1) % urls.length)}}/>
+          true: <>
+            <YouTube videoId={vidId} opts={{playerVars: {autoplay: 1,},}} onEnd={() => {setInd((ind+1) % urls.length)}}/>
+          <div> hi</div></>
         }[ready]
     }
     </>
