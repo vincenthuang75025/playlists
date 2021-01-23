@@ -8,8 +8,6 @@ import Listen from "./pages/Listen.js";
 
 import "../utilities.css";
 
-import { socket } from "../client-socket.js";
-
 import { get, post } from "../utilities";
 
 /**
@@ -32,7 +30,6 @@ const App = () => {
     console.log(`Logged in as ${res.profileObj.name}`);
     post("/api/login", { token: res.tokenObj.id_token }).then((user) => {
       setUserId(user._id);
-      post("/api/initsocket", { socketid: socket.id });
     });
   };
 

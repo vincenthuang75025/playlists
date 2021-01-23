@@ -29,8 +29,6 @@ const api = require("./api");
 const auth = require("./auth");
 
 require("dotenv").config({ path: path.resolve(__dirname, './.env') });
-// socket stuff
-const socket = require("./server-socket");
 
 // Server configuration below
 // TODO change connection URL after setting up your team database
@@ -98,7 +96,6 @@ app.use((err, req, res, next) => {
 // hardcode port to 3000 for now
 const port = 3000;
 const server = http.Server(app);
-socket.init(server);
 
 server.listen(port, () => {
   console.log(`Server running on port: ${port}`);
