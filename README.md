@@ -18,4 +18,12 @@ convert watch, mobile, etc. to embed
 
 add names and make them mandatory lmao
 
+default attributes shouldn't be added by user
+
+confirm submission instead of just disappearing
+
+convert embed and watch links
+
+skip and shuffle buttons
+
 oof
