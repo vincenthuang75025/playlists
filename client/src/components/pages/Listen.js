@@ -13,9 +13,9 @@ const Listen = (props) => {
     const [ready, setReady] = useState(false);
     const [urls, setUrls] = useState([]);
 
-    // const [test, setTest] = useState(0);
     const [ind, setInd] = useState(0);
     const [vidId, setVidId] = useState("");
+    const [names, setNames] = useState([]);
 
     useEffect(() => {
         if (urls.length > 0) {
@@ -47,10 +47,13 @@ const Listen = (props) => {
                 setReady(true);
                 post("/api/findsongs", q).then((songs) => {
                     let urlList = [];
+                    let nameList = [];
                     for(const i in songs) {
                         urlList = [...urlList, songs[i].url];
-                        setUrls(urlList);
+                        nameList = [...nameList, songs[i].name];
                     }
+                    setUrls(urlList);
+                    setNames(nameList);
                 });
             }
         },
@@ -68,7 +71,7 @@ const Listen = (props) => {
                 <YouTube videoId={vidId} opts={{playerVars: {autoplay: 1,},}} onEnd={() => {setInd((ind+1) % urls.length)}}/>
             </div>
             <div>
-                {urls.map((url, i) => <div className={ind===i? "u-bold":""}>{url}</div>)}
+                {names.map((name, i) => <div className={ind===i? "u-bold":""}>{name}</div>)}
             </div>
           </div>
           </>
