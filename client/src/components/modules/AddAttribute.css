@@ -13,8 +13,8 @@
 }
 
 .AddAttribute-wrapper {
+    /* display: inline-block; */
     font-size: 20px;
-    width: 100%;
     position: relative;
     left: 30%;
 }
@@ -29,4 +29,14 @@
 .AddAttribute-elem {
     position: relative;
     left: 10%;
+}
+
+.AddAttribute-scroll {
+    height: 100px;
+    width: 60%;
+    overflow-y: scroll;
+}
+
+.AddAttribute-scroll:hover {
+    background-color: lightgray;
 }

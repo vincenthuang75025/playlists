@@ -42,7 +42,9 @@ const AddAttribute = (props) => {
     </form>
     
     <div>Here are the attributes you currently have: </div>
-    {attrs.map((attr,i) => <div className="AddAttribute-elem" key={i}>•{attr.attribute} </div>)}
+        <div className="AddAttribute-scroll">
+        {attrs.map((attr,i) => <div className="AddAttribute-elem" key={i}>•{attr.attribute} </div>)}
+        </div>
     </div>
     <div className="u-textCenter">(Note: Attributes for name and url exist by default and don't need to be added.)</div>
      </>
