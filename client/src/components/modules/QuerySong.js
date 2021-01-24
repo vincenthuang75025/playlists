@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 
 import "../../utilities.css";
 import "./QuerySong.css";
-import { get, post } from "../../utilities";
+import { get} from "../../utilities";
 
 /**
  * The song and category organizer.
@@ -10,7 +10,6 @@ import { get, post } from "../../utilities";
  * @param {func} handleQuerySubmit callback function
  */
 const QuerySong = (props) => {
-    const [url, setUrl] = useState("");
     const [attrs, setAttrs] = useState([]);
     const [value, setValue] = useState("");
     const [attr, setAttr] = useState("None");

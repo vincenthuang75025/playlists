@@ -16,4 +16,6 @@ sanitize form inputs eg. yt url and display alerts to user for fail conditions
 
 convert watch, mobile, etc. to embed
 
+add names and make them mandatory lmao
+
 oof

@@ -1,0 +1,8 @@
+.Listen-wrapper {
+    font-size: 20px;
+    position: relative;
+    margin: 20px 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

@@ -2,7 +2,7 @@ import React, {useState, useCallback, useEffect} from "react";
 import "../../utilities.css";
 import "./Listen.css";
 import QuerySong from "../modules/QuerySong.js";
-import { get, post } from "../../utilities";
+import {post } from "../../utilities";
 import YouTube from "react-youtube";
 
 /**
@@ -21,7 +21,6 @@ const Listen = (props) => {
         if (urls.length > 0) {
         let arr = urls[ind].split('/');
         setVidId(arr[arr.length-1]);
-        console.log(vidId);
         }
     })
 
@@ -64,8 +63,15 @@ const Listen = (props) => {
         {
           false: <QuerySong userId={props.userId} handleQuerySubmit={handleQuerySubmit}/>,
           true: <>
-            <YouTube videoId={vidId} opts={{playerVars: {autoplay: 1,},}} onEnd={() => {setInd((ind+1) % urls.length)}}/>
-          <div> hi</div></>
+          <div className="Listen-wrapper">
+            <div>
+                <YouTube videoId={vidId} opts={{playerVars: {autoplay: 1,},}} onEnd={() => {setInd((ind+1) % urls.length)}}/>
+            </div>
+            <div>
+                {urls.map((url, i) => <div className={ind===i? "u-bold":""}>{url}</div>)}
+            </div>
+          </div>
+          </>
         }[ready]
     }
     </>
