@@ -11,13 +11,14 @@ import { get, post } from "../../utilities";
 const AddAttribute = (props) => {
     const [attrs, setAttrs] = useState([]);
     const [name, setName] = useState("");
+    const [toggle, setToggle] = useState(true); // to make sure we don't sort / fetch too much
+
     useEffect(() => {
         get("/api/attributes", {googleid: props.userId}).then((attributes) => {
-            console.log(attributes);
-            setAttrs(attributes);
-            console.log(attributes);
+            const attrNames = attributes.map((attr, i) => attr.attribute).sort();
+            setAttrs(attrNames);
         });
-    }, []);
+    }, [toggle]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -25,6 +26,7 @@ const AddAttribute = (props) => {
             post("/api/newattribute", {googleid: props.userId, attribute: name}).then(() => {
                 document.getElementById("attribute").value='';
                 setName("");
+                setToggle(!toggle);
             });
         }
     }
@@ -45,7 +47,7 @@ const AddAttribute = (props) => {
     
     <div>Here are the attributes you currently have: </div>
         <div className="AddAttribute-scroll">
-        {attrs.map((attr,i) => <div className="AddAttribute-elem" key={i}>•{attr.attribute} </div>)}
+        {attrs.map((attr,i) => <div className="AddAttribute-elem" key={i}>•{attr} </div>)}
         </div>
     </div>
     <div className="u-textCenter">(Note: Attributes for name and url exist by default and don't need to be added.)</div>

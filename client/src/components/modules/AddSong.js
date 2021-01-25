@@ -18,8 +18,8 @@ const AddSong = (props) => {
 
     useEffect(() => {
         get("/api/attributes", {googleid: props.userId}).then((attributes) => {
-            setAttrs(attributes);
-            console.log(attributes);
+            const attrNames = attributes.map((attr, i) => attr.attribute).sort();
+            setAttrs(attrNames);
         });
     }, []);
 
@@ -75,7 +75,7 @@ const AddSong = (props) => {
             <label>Choose an attribute to describe: </label>
             <select name="attr" id="attr" onChange={handleAttrChange}>
                 <option key={-1} value={"None"}>None</option>
-                {attrs.map((attr,i) => <option key={i} value={attrs.attribute}>{attr.attribute} </option>)}
+                {attrs.map((attr,i) => <option key={i} value={attr}>{attr} </option>)}
             </select>
         </div>
         <div className="u-flexColumn">
