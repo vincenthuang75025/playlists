@@ -19,8 +19,9 @@ const AddSong = (props) => {
     useEffect(() => {
         get("/api/attributes", {googleid: props.userId}).then((attributes) => {
             setAttrs(attributes);
+            console.log(attributes);
         });
-    });
+    }, []);
 
     const handleSubmit = () => {
         if (url.length !== 0 && values.length !== 0 && name.length !== 0) {

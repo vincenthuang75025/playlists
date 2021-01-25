@@ -13,9 +13,11 @@ const AddAttribute = (props) => {
     const [name, setName] = useState("");
     useEffect(() => {
         get("/api/attributes", {googleid: props.userId}).then((attributes) => {
-          setAttrs(attributes);
+            console.log(attributes);
+            setAttrs(attributes);
+            console.log(attributes);
         });
-    });
+    }, []);
 
     const handleSubmit = (event) => {
         event.preventDefault();

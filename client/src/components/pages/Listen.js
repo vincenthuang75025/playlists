@@ -21,6 +21,7 @@ const Listen = (props) => {
         if (urls.length > 0) {
         let arr = urls[ind].split('/');
         setVidId(arr[arr.length-1]);
+        console.log(vidId);
         }
     })
 

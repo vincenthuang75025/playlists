@@ -19,8 +19,9 @@ const QuerySong = (props) => {
     useEffect(() => {
         get("/api/attributes", {googleid: props.userId}).then((attributes) => {
             setAttrs(attributes);
+            console.log(attributes);
         });
-    });
+    }, [props.userId]);
 
     const handleValueChange = (event) => {
         setValue(event.target.value);
