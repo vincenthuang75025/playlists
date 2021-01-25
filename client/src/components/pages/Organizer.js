@@ -12,7 +12,7 @@ import EditSong from "../modules/EditSong.js";
 const Organizer = (props) => {
     const [subject, setSubject] = useState("songs");
 
-    return (
+    return ( props.userId ? 
       <>
         <div className="Organizer-container">
         <button className={(subject === "songs") ? "Organizer-button-active" : "Organizer-button"} onClick={() => setSubject("songs")}>Add Songs
@@ -29,6 +29,10 @@ const Organizer = (props) => {
           'edit': <EditSong userId={props.userId}/>
         }[subject]
       }
+      </> : <>
+      <div className="Organizer-container">
+        <div>Log in to start managing music!</div>
+      </div>
       </>
     );
   }
