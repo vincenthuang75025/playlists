@@ -17,6 +17,6 @@ convert embed and watch links
 
 skip and shuffle buttons
 
-sort attributes? 
-
 add scroll thing to vid player
+
+numeric types
