@@ -25,6 +25,22 @@ const Listen = (props) => {
         }
     })
 
+    const shuffle = () => {
+        const arr = [...Array(urls.length).keys()];
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        let newUrls = [];
+        let newNames = [];
+        for (let i = 0; i < arr.length; i++) {
+            newUrls = [...newUrls, urls[arr[i]]];
+            newNames = [...newNames, names[arr[i]]];
+        }
+        setUrls(newUrls);
+        setNames(newNames);
+    }
+
     const handleQuerySubmit = useCallback(
         (event, values, id) => {
             event.preventDefault();
@@ -76,8 +92,8 @@ const Listen = (props) => {
                     {names.map((name, i) => <div className={ind===i? "u-bold":""}> {i+1}: {name}</div>)}
                 </div>
                 <div className="Listen-buttons">
-                    <button className="Listen-button">yee</button>
-                    <button className="Listen-button">yee1</button>
+                    <button className="Listen-button" onClick={() => {setInd(ind+1)}}>Skip</button>
+                    <button className="Listen-button" onClick={() => {shuffle()}}>Shuffle</button>
                 </div>
             </div>
           </div>
