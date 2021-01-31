@@ -9,6 +9,25 @@
 
 .Listen-scroll {
     height: 100px;
-    width: 60%;
+    width: 150%;
     overflow-y: scroll;
+}
+
+.Listen-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.Listen-button {
+    background-color: transparent;
+    color: black;
+    width: 50%;
+    font-size: 20px;
+    border-radius: 10px;
+    outline: none;
+}
+
+.Listen-button:hover {
+    cursor: pointer;
+    background-color: gray;
 }

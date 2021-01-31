@@ -71,8 +71,14 @@ const Listen = (props) => {
             <div>
                 <YouTube videoId={vidId} opts={{playerVars: {autoplay: 1,},}} onEnd={() => {setInd((ind+1) % urls.length)}}/>
             </div>
-            <div className="Listen-scroll">
-                {names.map((name, i) => <div className={ind===i? "u-bold":""}> {i+1}: {name}</div>)}
+            <div>
+                <div className="Listen-scroll">
+                    {names.map((name, i) => <div className={ind===i? "u-bold":""}> {i+1}: {name}</div>)}
+                </div>
+                <div className="Listen-buttons">
+                    <button className="Listen-button">yee</button>
+                    <button className="Listen-button">yee1</button>
+                </div>
             </div>
           </div>
           </>
