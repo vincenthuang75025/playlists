@@ -1,9 +1,6 @@
-## What you need to change
+## TODO
 
-- Change the font in utilities.css
-- Add a favicon to your website at the path client/dist/favicon.ico
-- Update website title in client/dist/index.html
-
+add a favicon to your website at the path client/dist/favicon.ico
 
 handle edits and deletes (for songs + queries, not attributes)
 
@@ -15,8 +12,12 @@ confirm submission instead of just disappearing
 
 convert embed and watch links
 
-skip and shuffle buttons
-
-add scroll thing to vid player
-
 numeric types
+
+analytics
+
+query storage
+
+import from eg. spotify
+
+tutorial / explanation on main page
