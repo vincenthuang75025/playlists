@@ -1,18 +1,22 @@
-## TODO
+## Important
 
-add a favicon to your website at the path client/dist/favicon.ico
+add a favicon to website at the path client/dist/favicon.ico
 
 handle edits and deletes (for songs + queries, not attributes)
 
 don't let song submit multiple of same attribute
 
-sanitize form inputs eg. yt url and display alerts to user for fail conditions
-
-confirm submission instead of just disappearing
+sanitize form inputs eg. yt url and numeric types; display alerts to user for fail conditions
 
 convert embed and watch links
 
 numeric types
+
+-------------
+
+## Can Wait
+
+confirm submission instead of just disappearing
 
 analytics
 
