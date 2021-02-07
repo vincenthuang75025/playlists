@@ -12,6 +12,7 @@ const AddAttribute = (props) => {
     const [attrs, setAttrs] = useState([]);
     const [name, setName] = useState("");
     const [toggle, setToggle] = useState(true); // to make sure we don't sort / fetch too much
+    const [type, setType] = useState("String");
 
     useEffect(() => {
         get("/api/attributes", {googleid: props.userId}).then((attributes) => {
@@ -23,23 +24,33 @@ const AddAttribute = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         if (name.length !== 0) {
-            post("/api/newattribute", {googleid: props.userId, attribute: name}).then(() => {
+            post("/api/newattribute", {googleid: props.userId, attribute: name, type: type}).then(() => {
                 document.getElementById("attribute").value='';
+                document.getElementById("type").value="String";
                 setName("");
+                setType("String");
                 setToggle(!toggle);
             });
         }
     }
 
-    const handleChange = (event) => {
+    const handleNameChange = (event) => {
         setName(event.target.value);
+    }
+
+    const handleTypeChange = (event) => {
+        setType(event.target.value);
     }
 
     return (
     <>
     <div className="AddAttribute-wrapper">
     <form className="AddAttribute-form">
-        <input text="Test" id="attribute" onChange={handleChange} placeholder="Add new attribute!"/>
+        <input text="Test" id="attribute" onChange={handleNameChange} placeholder="Add new attribute!"/>
+        <select name="type" id="type" onChange={handleTypeChange}>
+            <option key={-1} value="String">String</option>
+            <option key={-2} value="Numerical">Numerical</option>
+        </select>
         <button type="submit" value="Submit" className="AddAttribute-button" onClick={handleSubmit}>
               Submit
         </button>
