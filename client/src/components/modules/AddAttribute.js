@@ -13,9 +13,11 @@ const AddAttribute = (props) => {
     const [name, setName] = useState("");
     const [toggle, setToggle] = useState(true); // to make sure we don't sort / fetch too much
     const [type, setType] = useState("String");
+    const [attrTypes, setAttrTypes] = useState([]);
 
     useEffect(() => {
         get("/api/attributes", {googleid: props.userId}).then((attributes) => {
+            setAttrTypes(attributes.map((attr, i) => [attr.attribute, attr.type]));
             const attrNames = attributes.map((attr, i) => attr.attribute).sort();
             setAttrs(attrNames);
         });
@@ -58,7 +60,7 @@ const AddAttribute = (props) => {
     
     <div>Here are the attributes you currently have: </div>
         <div className="AddAttribute-scroll">
-        {attrs.map((attr,i) => <div className="AddAttribute-elem" key={i}>•{attr} </div>)}
+        {attrTypes.map((attr,i) => <div className="AddAttribute-elem" key={i}>•{attr[0]} ({attr[1]}) </div>)}
         </div>
     </div>
     <div className="u-textCenter">(Note: Attributes for name and url exist by default and don't need to be added.)</div>
