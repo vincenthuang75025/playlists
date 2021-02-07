@@ -20,7 +20,8 @@ const Listen = (props) => {
     useEffect(() => {
         if (urls.length > 0) {
         let arr = urls[ind].split('/');
-        setVidId(arr[arr.length-1]);
+        let end = arr[arr.length-1];
+        setVidId(end.substring(end.length-11,end.length));
         console.log(vidId);
         }
     })
