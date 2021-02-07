@@ -92,7 +92,7 @@ const Listen = (props) => {
                     {names.map((name, i) => <div className={ind===i? "u-bold":""}> {i+1}: {name}</div>)}
                 </div>
                 <div className="Listen-buttons">
-                    <button className="Listen-button" onClick={() => {setInd(ind+1)}}>Skip</button>
+                    <button className="Listen-button" onClick={() => {setInd((ind+1) % urls.length)}}>Skip</button>
                     <button className="Listen-button" onClick={() => {shuffle()}}>Shuffle</button>
                 </div>
             </div>
