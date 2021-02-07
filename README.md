@@ -8,8 +8,6 @@ sanitize form inputs eg. yt url; convert embed and watch links
 
 ## Can Wait
 
-confirm submission instead of just disappearing
-
 display alerts to user for fail conditions wrt form submissions
 
 analytics
