@@ -82,6 +82,11 @@ const AddSong = (props) => {
         setAttr(event.target.value);
     }
 
+    const removeKey = (key) => {
+        const {[key]: remove, ...rest} = values;
+        setValues(rest);
+    }
+
     return (
     <>
     <div className="AddSong-wrapper">
@@ -108,7 +113,7 @@ const AddSong = (props) => {
     <div className="u-bold">
         Current Attributes
     </div>
-    {(Object.keys(values).length === 0) ? <div>No attributes yet -- add some!</div>: Object.keys(values).map((value, i) => <div key={-i}>{value}: {values[value]}</div>)}
+    {(Object.keys(values).length === 0) ? <div>No attributes yet -- add some!</div>: Object.keys(values).map((value, i) => <div className="AddSong-hoverRed" key={-i} onClick={() => removeKey(value)}>{value}: {values[value]}</div>)}
     <button type="submit" value="Submit" className="AddSong-button AddSong-right" onClick={handleSubmit}>
         Submit Song
     </button>

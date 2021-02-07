@@ -66,6 +66,16 @@ const QuerySong = (props) => {
         setComp(event.target.value);
     }
 
+    const removeInd = (ind) => {
+        let newVals = [];
+        for (let i=0; i < values.length; i++) {
+            if (!(i=== ind)) {
+                newVals = [...newVals, values[ind]];
+            }
+        }
+        setValues(newVals);
+    }
+
     const comps = ["None", '≤', "≥", "="];
 
     return (
@@ -76,13 +86,13 @@ const QuerySong = (props) => {
             <label>Choose an attribute to describe: </label>
             <select name="attr" id="attr" onChange={handleAttrChange}>
                 <option key={-1} value={"None"}>None</option>
-                {attrs.map((attr,i) => <option key={i} value={attr}>{attr} </option>)}
+                {attrs.map((attr,i) => <option key={-i} value={attr}>{attr} </option>)}
             </select>
         </div>
         <div className="QuerySong-row">
             <label>Comparison option: </label>
             <select name="comp" id="comp" onChange={handleCompChange}>
-                {comps.map((comp,i) => <option key={i} value={comp}>{comp} </option>)}
+                {comps.map((comp,i) => <option key={-i} value={comp}>{comp} </option>)}
             </select>
         </div>
         <div className="u-flexColumn">
@@ -99,7 +109,7 @@ const QuerySong = (props) => {
         Current Conditions
     </div>
     <div>
-    {(values.length === 0) ? <div>No conditions yet -- add some!</div>: values.map((value, i) => <div key={-i}>{value[0]} {value[1]} {value[2]}</div>)}
+    {(values.length === 0) ? <div>No conditions yet -- add some!</div>: values.map((value, i) => <div className="QuerySong-hoverRed" key={i} onClick={() => removeInd(i)}>{value[0]} {value[1]} {value[2]}</div>)}
     </div>
     <button type="submit" value="Submit" className="QuerySong-button QuerySong-right" onClick={(event) => props.handleQuerySubmit(event, values, props.userId)}>
         Submit Query
