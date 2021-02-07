@@ -13,7 +13,7 @@ const AddSong = (props) => {
     const [attrs, setAttrs] = useState([]);
     const [value, setValue] = useState("");
     const [attr, setAttr] = useState("None");
-    const [values, setValues] = useState([]);
+    const [values, setValues] = useState({});
     const [name, setName] = useState("");
     const [attrTypes, setAttrTypes] = useState({});
 
@@ -28,15 +28,17 @@ const AddSong = (props) => {
     }, []);
 
     const handleSubmit = () => {
-        if (url.length !== 0 && values.length !== 0 && name.length !== 0) {
+        if (url.length !== 0 && name.length !== 0) {
             let q = {'googleid': props.userId, 'url': url, 'name': name};
-            values.forEach((item, _) => q[item[0]] = item[1]);
+            for (var item in values) {
+                q[item] = values[item];
+            }
             post("/api/newsong", q).then((resp) => {
                 console.log(resp);
             });
             setUrl("");
             setName("");
-            setValues([]);
+            setValues({});
             document.getElementById("url").value="";
             document.getElementById("name").value="";
         }
@@ -58,7 +60,7 @@ const AddSong = (props) => {
         event.preventDefault();
         if (attr !== "None") {
             if (attrTypes[attr] === "String") {
-                setValues([...values, [attr, value]]);
+                setValues({...values, [attr]: value});
                 setAttr("None");
                 setValue("");
                 document.getElementById("attr").value="None";
@@ -66,7 +68,7 @@ const AddSong = (props) => {
             } 
             else {
                 if (!(isNaN(Number(value)))) {
-                    setValues([...values, [attr, Number(value)]]);
+                    setValues({...values, [attr]: Number(value)});
                     setAttr("None");
                     setValue("");
                     document.getElementById("attr").value="None";
@@ -106,7 +108,7 @@ const AddSong = (props) => {
     <div className="u-bold">
         Current Attributes
     </div>
-    {(values.length === 0) ? <div>No attributes yet -- add some!</div>: values.map((value, i) => <div key={-i}>{value[0]}: {value[1]}</div>)}
+    {(Object.keys(values).length === 0) ? <div>No attributes yet -- add some!</div>: Object.keys(values).map((value, i) => <div key={-i}>{value}: {values[value]}</div>)}
     <button type="submit" value="Submit" className="AddSong-button AddSong-right" onClick={handleSubmit}>
         Submit Song
     </button>
