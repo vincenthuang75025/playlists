@@ -16,8 +16,6 @@ numeric types
 
 ## Can Wait
 
-prevent db duplicates (attributes)
-
 confirm submission instead of just disappearing
 
 analytics

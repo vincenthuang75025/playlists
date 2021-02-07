@@ -23,7 +23,7 @@ const AddAttribute = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (name.length !== 0) {
+        if (name.length !== 0 && attrs.indexOf(name) === -1) {
             post("/api/newattribute", {googleid: props.userId, attribute: name, type: type}).then(() => {
                 document.getElementById("attribute").value='';
                 document.getElementById("type").value="String";
