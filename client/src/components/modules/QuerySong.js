@@ -15,9 +15,14 @@ const QuerySong = (props) => {
     const [attr, setAttr] = useState("None");
     const [values, setValues] = useState([]);
     const [comp, setComp] = useState("None");
+    const [attrTypes, setAttrTypes] = useState({});
+
 
     useEffect(() => {
         get("/api/attributes", {googleid: props.userId}).then((attributes) => {
+            let types = {};
+            attributes.forEach((item, _) => types[item["attribute"]] = item["type"]);
+            setAttrTypes(types);
             const attrNames = attributes.map((attr, i) => attr.attribute).sort();
             setAttrs(attrNames);
         });
@@ -30,13 +35,26 @@ const QuerySong = (props) => {
     const handleValueSubmit = (event) => {
         event.preventDefault();
         if (attr !== "None" && comp != "None" && value != "") {
-            setValues([...values, [attr, comp, value]]);
-            setAttr("None");
-            setComp("None");
-            setValue("");
-            document.getElementById("attr").value="None";
-            document.getElementById("comp").value="None";
-            document.getElementById("attrValue").value="";
+            if (attrTypes[attr] === "String") {
+                setValues([...values, [attr, comp, value]]);
+                setAttr("None");
+                setComp("None");
+                setValue("");
+                document.getElementById("attr").value="None";
+                document.getElementById("comp").value="None";
+                document.getElementById("attrValue").value="";
+            }
+            else {
+                if (!isNaN(Number(value))) {
+                    setValues([...values, [attr, comp, Number(value)]]);
+                    setAttr("None");
+                    setComp("None");
+                    setValue("");
+                    document.getElementById("attr").value="None";
+                    document.getElementById("comp").value="None";
+                    document.getElementById("attrValue").value="";
+                }
+            }
         }
     }
 

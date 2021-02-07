@@ -15,9 +15,13 @@ const AddSong = (props) => {
     const [attr, setAttr] = useState("None");
     const [values, setValues] = useState([]);
     const [name, setName] = useState("");
+    const [attrTypes, setAttrTypes] = useState({});
 
     useEffect(() => {
         get("/api/attributes", {googleid: props.userId}).then((attributes) => {
+            let types = {};
+            attributes.forEach((item, _) => types[item["attribute"]] = item["type"]);
+            setAttrTypes(types);
             const attrNames = attributes.map((attr, i) => attr.attribute).sort();
             setAttrs(attrNames);
         });
@@ -53,11 +57,22 @@ const AddSong = (props) => {
     const handleValueSubmit = (event) => {
         event.preventDefault();
         if (attr !== "None") {
-            setValues([...values, [attr, value]]);
-            setAttr("None");
-            setValue("");
-            document.getElementById("attr").value="None";
-            document.getElementById("attrValue").value="";
+            if (attrTypes[attr] === "String") {
+                setValues([...values, [attr, value]]);
+                setAttr("None");
+                setValue("");
+                document.getElementById("attr").value="None";
+                document.getElementById("attrValue").value="";
+            } 
+            else {
+                if (!(isNaN(Number(value)))) {
+                    setValues([...values, [attr, Number(value)]]);
+                    setAttr("None");
+                    setValue("");
+                    document.getElementById("attr").value="None";
+                    document.getElementById("attrValue").value="";
+                }
+            }
         }
     }
 
