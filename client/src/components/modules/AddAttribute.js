@@ -17,8 +17,10 @@ const AddAttribute = (props) => {
 
     useEffect(() => {
         get("/api/attributes", {googleid: props.userId}).then((attributes) => {
-            setAttrTypes(attributes.map((attr, i) => [attr.attribute, attr.type]));
-            const attrNames = attributes.map((attr, i) => attr.attribute).sort();
+            //setAttrTypes(attributes.map((attr, i) => [attr.attribute, attr.type]));
+            const attrNameTypes = attributes.map((attr, i) => [attr.attribute, attr.type]).sort();
+            setAttrTypes(attrNameTypes);
+            const attrNames = attributes.map((attr, i) => attr.attribute);
             setAttrs(attrNames);
         });
     }, [toggle]);

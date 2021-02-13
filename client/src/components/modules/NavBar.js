@@ -17,7 +17,7 @@ const NavBar = (props) => {
     <>
       <nav className="NavBar-container">
         <Link to="/" className="NavBar-title u-inlineBlock NavBar-Mainlink NavBar-link">
-          Playlists
+          Song Selector
         </Link>
         <div className="NavBar-linkContainer u-inlineBlock">
           <Link to="/songs" className="NavBar-link">
@@ -28,11 +28,11 @@ const NavBar = (props) => {
               Listen
             </Link>
           )}
-          {props.userId && (
+          {/* {props.userId && (
             <Link to="/data" className="NavBar-link">
               Analytics
             </Link>
-          )}
+          )} */}
           {props.userId && (
             <Link to="/import" className="NavBar-link">
               Import from x

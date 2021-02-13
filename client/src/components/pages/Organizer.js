@@ -17,9 +17,9 @@ const Organizer = (props) => {
         <div className="Organizer-container">
         <button className={(subject === "songs") ? "Organizer-button-active" : "Organizer-button"} onClick={() => setSubject("songs")}>Add Songs
         </button>
-        <button className={(subject === "edit") ? "Organizer-button-active" : "Organizer-button"} onClick={() => setSubject("edit")}>Edit Songs
-        </button>
         <button className={(subject === "attributes") ? "Organizer-button-active" : "Organizer-button"} onClick={() => setSubject("attributes")}>Manage Attributes
+        </button>
+        <button className={(subject === "edit") ? "Organizer-button-active" : "Organizer-button"} onClick={() => setSubject("edit")}>Edit Songs
         </button>
         </div>
       {
