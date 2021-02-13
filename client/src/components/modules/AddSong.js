@@ -16,6 +16,7 @@ const AddSong = (props) => {
     const [values, setValues] = useState({});
     const [name, setName] = useState("");
     const [attrTypes, setAttrTypes] = useState({});
+    const [artist, setArtist] = useState("");
 
     useEffect(() => {
         get("/api/attributes", {googleid: props.userId}).then((attributes) => {
@@ -28,8 +29,8 @@ const AddSong = (props) => {
     }, []);
 
     const handleSubmit = () => {
-        if (url.length !== 0 && name.length !== 0) {
-            let q = {'googleid': props.userId, 'url': url, 'name': name};
+        if (url.length !== 0 && name.length !== 0 && artist.length !== 0) {
+            let q = {'googleid': props.userId, 'url': url, 'name': name, 'artist': artist};
             for (var item in values) {
                 q[item] = values[item];
             }
@@ -50,6 +51,10 @@ const AddSong = (props) => {
 
     const handleNameChange = (event) => {
         setName(event.target.value);
+    }
+
+    const handleArtistChange = (event) => {
+        setArtist(event.target.value);
     }
 
     const handleValueChange = (event) => {
@@ -92,6 +97,7 @@ const AddSong = (props) => {
     <div className="AddSong-wrapper">
     <input id="url" onChange={handleUrlChange} placeholder="Paste youtube url here" className="AddSong-wide"/>
     <input id="name" onChange={handleNameChange} placeholder="Name the song" className="AddSong-wide"/>
+    <input id="artist" onChange={handleArtistChange} placeholder="Name the artist" className="AddSong-wide"/>
     <form className="AddSong-form">
         <div className="AddSong-row">
             <label>Choose an attribute to describe: </label>

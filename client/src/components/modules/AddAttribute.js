@@ -15,11 +15,11 @@ const AddAttribute = (props) => {
     const [type, setType] = useState("String");
     const [attrTypes, setAttrTypes] = useState([]);
 
+    const forbidden = ["name", "url", "Artist"];
+
     useEffect(() => {
         get("/api/attributes", {googleid: props.userId}).then((attributes) => {
-            //setAttrTypes(attributes.map((attr, i) => [attr.attribute, attr.type]));
-            const attrNameTypes = attributes.map((attr, i) => [attr.attribute, attr.type]).sort();
-            setAttrTypes(attrNameTypes);
+            setAttrTypes(attributes.map((attr, i) => [attr.attribute, attr.type]).sort());
             const attrNames = attributes.map((attr, i) => attr.attribute);
             setAttrs(attrNames);
         });
@@ -27,7 +27,7 @@ const AddAttribute = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (name.length !== 0 && attrs.indexOf(name) === -1) {
+        if (name.length !== 0 && attrs.indexOf(name) === -1 && forbidden.indexOf(name) === -1) {
             post("/api/newattribute", {googleid: props.userId, attribute: name, type: type}).then(() => {
                 document.getElementById("attribute").value='';
                 document.getElementById("type").value="String";
@@ -65,7 +65,7 @@ const AddAttribute = (props) => {
         {attrTypes.map((attr,i) => <div className="AddAttribute-elem" key={i}>•{attr[0]} ({attr[1]}) </div>)}
         </div>
     </div>
-    <div className="u-textCenter">(Note: Attributes for name and url exist by default and don't need to be added.)</div>
+    <div className="u-textCenter">(Note: Attributes for name, artist, url exist by default and don't need to be added.)</div>
      </>
     );
 }
