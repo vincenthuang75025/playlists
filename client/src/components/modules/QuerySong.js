@@ -23,7 +23,7 @@ const QuerySong = (props) => {
             let types = {};
             attributes.forEach((item, _) => types[item["attribute"]] = item["type"]);
             setAttrTypes(types);
-            const attrNames = attributes.map((attr, i) => attr.attribute).sort();
+            const attrNames = attributes.map((attr, i) => (attr.type === 'String') ? attr.attribute.concat(" (Str)"): attr.attribute.concat(" (Num)")).sort();
             setAttrs(attrNames);
         });
     }, [props.userId]);
