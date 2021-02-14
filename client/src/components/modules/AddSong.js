@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 
 import "../../utilities.css";
 import "./AddSong.css";
-import { get, post } from "../../utilities";
+import { get, post, trunc} from "../../utilities";
 
 /**
  * The song and category organizer.
@@ -17,6 +17,7 @@ const AddSong = (props) => {
     const [name, setName] = useState("");
     const [attrTypes, setAttrTypes] = useState({});
     const [artist, setArtist] = useState("");
+    const [errorMsg, setErrorMsg] = useState("");
 
     useEffect(() => {
         get("/api/attributes", {googleid: props.userId}).then((attributes) => {
@@ -50,6 +51,9 @@ const AddSong = (props) => {
             document.getElementById("name").value="";
             document.getElementById("artist").value="";
         }
+        else {
+            setErrorMsg("Must supply non-empty url, song name, and artist name");
+        }
     }
 
     const handleUrlChange = (event) => {
@@ -70,23 +74,29 @@ const AddSong = (props) => {
 
     const handleValueSubmit = (event) => {
         event.preventDefault();
-        if (attr !== "None") {
-            if (attrTypes[attr] === "String") {
-                setValues({...values, [attr]: value});
+        const tempAttr = trunc(attr);
+        if (attr !== "None" && value !== "None") {
+            if (attrTypes[tempAttr] === "String") {
+                setValues({...values, [tempATtr]: value});
+                setErrorMsg("");
+            } 
+            else if (!(isNaN(Number(value)))) {
+                setValues({...values, [tempAttr]: Number(value)});
+                setErrorMsg("");
+            }
+            console.log(attrTypes[tempAttr]);
+            if (attrTypes[tempAttr] === "Numerical" && isNaN(Number(value))) {
+                setErrorMsg("Can't supply non-numerical value to numerical attribute");
+            }
+            else {
                 setAttr("None");
                 setValue("");
                 document.getElementById("attr").value="None";
                 document.getElementById("attrValue").value="";
-            } 
-            else {
-                if (!(isNaN(Number(value)))) {
-                    setValues({...values, [attr]: Number(value)});
-                    setAttr("None");
-                    setValue("");
-                    document.getElementById("attr").value="None";
-                    document.getElementById("attrValue").value="";
-                }
             }
+        }
+        else {
+            setErrorMsg("Must supply non-empty attributes and values");
         }
     }
 
@@ -102,6 +112,7 @@ const AddSong = (props) => {
     return (
     <>
     <div className="AddSong-wrapper">
+    <div className="AddSong-error">{errorMsg}</div>
     <input id="url" onChange={handleUrlChange} placeholder="Paste youtube url here" className="AddSong-wide"/>
     <input id="name" onChange={handleNameChange} placeholder="Name the song" className="AddSong-wide"/>
     <input id="artist" onChange={handleArtistChange} placeholder="Name the artist" className="AddSong-wide"/>

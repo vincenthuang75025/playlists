@@ -61,3 +61,8 @@ export function post(endpoint, params = {}) {
       throw `POST request to ${endpoint} failed with error:\n${error}`;
     });
 }
+
+export const trunc = (attrib) => {
+  let n = attrib.length;
+  return attrib.substring(0,n-6);
+}

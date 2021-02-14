@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 
 import "../../utilities.css";
 import "./QuerySong.css";
-import { get} from "../../utilities";
+import { get, trunc} from "../../utilities";
 
 /**
  * The song and category organizer.
@@ -31,11 +31,6 @@ const QuerySong = (props) => {
 
     const handleValueChange = (event) => {
         setValue(event.target.value);
-    }
-
-    const trunc = (attrib) => {
-        let n = attrib.length;
-        return attrib.substring(0,n-6);
     }
 
     const handleValueSubmit = (event) => {
