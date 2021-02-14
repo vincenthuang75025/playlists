@@ -10,26 +10,16 @@ In situations like these, it makes sense to rate songs on a bunch of attributes,
 
 ## Somewhat urgent
 
-lots of onboarding
+lots of onboarding, decide what main page is
 
-comment out irrelevant stuff, change name, etc. add link to readme
+comment out irrelevant stuff, change name, etc. add link to readme, git button
 
 
 ## Non-urgent additions
 
 display alerts to user for failure conditions wrt form submissions
 
-sanitize forms, yt links, etc.
-
-analytics, friends, etc.
-
-saving recent/fav queries
-
 import from eg. spotify or other lists
-
-tutorial / explanation on main page
-
-option to turn off autoplay
 
 try netlify or something
 
@@ -37,22 +27,18 @@ edit songs - search or randomize
 
 basic css remake, esp fonts and colors
 
-yt search, keyword search in general
-
 social aspect / sharing
-
-addAttributes sort broke
-
-decide when attribute list should have num/str on it
-
-edit favicon to be brighter
-
-make artist mandatory too
-
-reset attribute upon submission
 
 some legend for users to remember how they want to use categories?
 
 scroll in the attributes dropdowns
 
 cap playlist number? select 1? etc.
+
+## Very non-urgent
+
+sanitize forms, yt links, etc.
+
+saving recent/fav queries
+
+yt search, keyword search in general? simulate yt but only if thats a good thing

@@ -23,6 +23,7 @@ const AddSong = (props) => {
             let types = {};
             attributes.forEach((item, _) => types[item["attribute"]] = item["type"]);
             setAttrTypes(types);
+            console.log(types);
             const attrNames = attributes.map((attr, i) => (attr.type === 'String') ? attr.attribute.concat(" (Str)"): attr.attribute.concat(" (Num)")).sort();
             setAttrs(attrNames);
         });
@@ -39,9 +40,15 @@ const AddSong = (props) => {
             });
             setUrl("");
             setName("");
+            setArtist("");
             setValues({});
+            setAttr("None");
+            setValue("");
+            document.getElementById("attr").value="None";
+            document.getElementById("attrValue").value="";
             document.getElementById("url").value="";
             document.getElementById("name").value="";
+            document.getElementById("artist").value="";
         }
     }
 
@@ -63,6 +70,8 @@ const AddSong = (props) => {
 
     const handleValueSubmit = (event) => {
         event.preventDefault();
+        console.log(attr);
+        console.log(attrTypes[attr]);
         if (attr !== "None") {
             if (attrTypes[attr] === "String") {
                 setValues({...values, [attr]: value});

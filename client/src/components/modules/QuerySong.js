@@ -32,11 +32,17 @@ const QuerySong = (props) => {
         setValue(event.target.value);
     }
 
+    const trunc = (attrib) => {
+        let n = attrib.length;
+        return attrib.substring(0,n-6);
+    }
+
     const handleValueSubmit = (event) => {
         event.preventDefault();
+        const tempAttr = trunc(attr);
         if (attr !== "None" && comp != "None" && value != "") {
-            if (attrTypes[attr] === "String") {
-                setValues([...values, [attr, comp, value]]);
+            if (attrTypes[tempAttr] === "String") {
+                setValues([...values, [tempAttr, comp, value]]);
                 setAttr("None");
                 setComp("None");
                 setValue("");
@@ -46,7 +52,7 @@ const QuerySong = (props) => {
             }
             else {
                 if (!isNaN(Number(value))) {
-                    setValues([...values, [attr, comp, Number(value)]]);
+                    setValues([...values, [tempAttr, comp, Number(value)]]);
                     setAttr("None");
                     setComp("None");
                     setValue("");
