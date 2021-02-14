@@ -5,6 +5,7 @@ import Skeleton from "./pages/Skeleton.js";
 import Organizer from "./pages/Organizer.js";
 import NavBar from "./modules/NavBar.js";
 import Listen from "./pages/Listen.js";
+import Import from "./pages/Import.js";
 
 import "../utilities.css";
 
@@ -62,7 +63,7 @@ const App = () => {
           path="/data"
           userId={userId}
         />
-        <Skeleton
+        <Import
           path="/import"
           userId={userId}
         />

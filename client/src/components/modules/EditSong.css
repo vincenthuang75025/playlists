@@ -1,0 +1,39 @@
+.EditSong-wrapper {
+    position: relative;
+    left: 20%;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.EditSong-button {
+    background-color: transparent;
+    color: black;
+    font-size: 20px;
+    border-radius: 10px;
+    outline: none;
+}
+
+.EditSong-button:hover {
+    cursor: pointer;
+    background-color: gray;
+}
+
+.EditSong-wide {
+    position: relative;
+    width: 70%;
+    font-size: 20px;
+}
+
+.EditSong-form {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.EditSong-error {
+    color: red;
+    font-size: 12px;
+}

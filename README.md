@@ -12,16 +12,11 @@ In situations like these, it makes sense to rate songs on a bunch of attributes,
 
 lots of onboarding, decide what main page is
 
-comment out irrelevant stuff, change name, etc. add link to readme, git button
+comment out irrelevant stuff, etc. add link to readme, git button
 
+logout screens for each page
 
 ## Non-urgent additions
-
-display alerts to user for failure conditions wrt form submissions
-
-import from eg. spotify or other lists
-
-try netlify or something
 
 edit songs - search or randomize
 
@@ -31,9 +26,11 @@ social aspect / sharing
 
 some legend for users to remember how they want to use categories?
 
-scroll in the attributes dropdowns
-
 cap playlist number? select 1? etc.
+
+import from eg. spotify or other lists, but how to get attrs?
+
+better names and descriptions for forms probably
 
 ## Very non-urgent
 
@@ -42,3 +39,7 @@ sanitize forms, yt links, etc.
 saving recent/fav queries
 
 yt search, keyword search in general? simulate yt but only if thats a good thing
+
+scroll in the attributes dropdowns, or search? 
+
+try netlify or something

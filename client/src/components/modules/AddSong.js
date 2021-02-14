@@ -77,7 +77,7 @@ const AddSong = (props) => {
         const tempAttr = trunc(attr);
         if (attr !== "None" && value !== "None") {
             if (attrTypes[tempAttr] === "String") {
-                setValues({...values, [tempATtr]: value});
+                setValues({...values, [tempAttr]: value});
                 setErrorMsg("");
             } 
             else if (!(isNaN(Number(value)))) {

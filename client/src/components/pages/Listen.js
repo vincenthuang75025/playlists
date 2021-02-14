@@ -79,6 +79,7 @@ const Listen = (props) => {
     );
 
     return (
+        props.userId ? 
     <>
     {
         {
@@ -101,7 +102,10 @@ const Listen = (props) => {
           </>
         }[ready]
     }
-    </>
+    </> : 
+        <div className="Listen-wrapper">
+            <div>Log in to listen to your music!</div>
+        </div>
     );
   }
   
