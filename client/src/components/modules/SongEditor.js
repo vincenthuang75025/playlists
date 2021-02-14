@@ -1,22 +1,20 @@
 import React, {useState, useEffect} from "react";
 
 import "../../utilities.css";
-import "./AddSong.css";
+import "./SongEditor.css";
 import { get, post, trunc} from "../../utilities";
 
 /**
  * The song and category organizer.
  * @param {String} userId of the user
+ * @param {JSON} song of the user
  */
-const AddSong = (props) => {
-    const [url, setUrl] = useState("");
+const SongEditor = (props) => {
     const [attrs, setAttrs] = useState([]);
     const [value, setValue] = useState("");
     const [attr, setAttr] = useState("None");
     const [values, setValues] = useState({});
-    const [name, setName] = useState("");
     const [attrTypes, setAttrTypes] = useState({});
-    const [artist, setArtist] = useState("");
     const [errorMsg, setErrorMsg] = useState("");
 
     useEffect(() => {
@@ -24,48 +22,30 @@ const AddSong = (props) => {
             let types = {};
             attributes.forEach((item, _) => types[item["attribute"]] = item["type"]);
             setAttrTypes(types);
-            console.log(types);
             const attrNames = attributes.map((attr, i) => (attr.type === 'String') ? attr.attribute.concat(" (Str)"): attr.attribute.concat(" (Num)")).sort();
             setAttrs(attrNames);
         });
     }, []);
 
+    useEffect(() => {
+        const {googleid: remove1, url: remove2, Artist: remove3, name: remove4, _id: remove5, __v: remove6, ...rest} = props.song;
+        setValues(rest);
+    }, [])
+
     const handleSubmit = () => {
-        if (url.length !== 0 && name.length !== 0 && artist.length !== 0) {
-            let q = {'googleid': props.userId, 'url': url, 'name': name, 'artist': artist};
-            for (var item in values) {
-                q[item] = values[item];
-            }
-            post("/api/newsong", q).then((resp) => {
-                console.log(resp);
-            });
-            setUrl("");
-            setName("");
-            setArtist("");
-            setValues({});
-            setAttr("None");
-            setValue("");
-            document.getElementById("attr").value="None";
-            document.getElementById("attrValue").value="";
-            document.getElementById("url").value="";
-            document.getElementById("name").value="";
-            document.getElementById("artist").value="";
+        let q = {'googleid': props.userId, 'url': props.song.url, 'name': props.song.name, 'artist': props.song.Artist};
+        for (var item in values) {
+            q[item] = values[item];
         }
-        else {
-            setErrorMsg("Must supply non-empty url, song name, and artist name");
-        }
-    }
-
-    const handleUrlChange = (event) => {
-        setUrl(event.target.value);
-    }
-
-    const handleNameChange = (event) => {
-        setName(event.target.value);
-    }
-
-    const handleArtistChange = (event) => {
-        setArtist(event.target.value);
+        // delete song at some point
+        post("/api/replacesong", {old: props.song._id, new: q}).then((resp) => {
+            console.log(resp);
+        });
+        setValues({});
+        setAttr("None");
+        setValue("");
+        document.getElementById("attr").value="None";
+        document.getElementById("attrValue").value="";
     }
 
     const handleValueChange = (event) => {
@@ -110,13 +90,10 @@ const AddSong = (props) => {
 
     return (
     <>
-    <div className="AddSong-wrapper">
-    <div className="AddSong-error">{errorMsg}</div>
-    <input id="url" onChange={handleUrlChange} placeholder="Paste youtube url here" className="AddSong-wide"/>
-    <input id="name" onChange={handleNameChange} placeholder="Name the song" className="AddSong-wide"/>
-    <input id="artist" onChange={handleArtistChange} placeholder="Name the artist" className="AddSong-wide"/>
-    <form className="AddSong-form">
-        <div className="AddSong-row">
+    <div className="SongEditor-wrapper">
+    <div className="SongEditor-error">{errorMsg}</div>
+    <form className="SongEditor-form">
+        <div className="SongEditor-row">
             <label>Choose an attribute to describe: </label>
             <select name="attr" id="attr" onChange={handleAttrChange}>
                 <option key={-1} value={"None"}>None</option>
@@ -124,11 +101,11 @@ const AddSong = (props) => {
             </select>
         </div>
         <div className="u-flexColumn">
-            <div className="AddSong-row">
+            <div className="SongEditor-row">
                 <label>Choose a value to give the attribute: </label>
                 <input id="attrValue" onChange={handleValueChange} placeholder="Put value here"/>
             </div>
-            <button type="submit" value="Submit" className="AddSong-button AddSong-small" onClick={handleValueSubmit}>
+            <button type="submit" value="Submit" className="SongEditor-button SongEditor-small" onClick={handleValueSubmit}>
                 Submit Value
             </button>
         </div>
@@ -136,12 +113,13 @@ const AddSong = (props) => {
     <div className="u-bold">
         Current Attributes
     </div>
-    {(Object.keys(values).length === 0) ? <div>No attributes yet -- add some!</div>: Object.keys(values).map((value, i) => <div className="AddSong-hoverRed" key={-i} onClick={() => removeKey(value)}>{value}: {values[value]}</div>)}
-    <button type="submit" value="Submit" className="AddSong-button AddSong-right" onClick={handleSubmit}>
+    {(Object.keys(values).length === 0) ? <div>No attributes yet -- add some!</div>: Object.keys(values).map((value, i) => <div className="SongEditor-hoverRed" key={-i} onClick={() => removeKey(value)}>{value}: {values[value]}</div>)}
+    <button type="submit" value="Submit" className="SongEditor-button SongEditor-right" onClick={handleSubmit}>
         Submit Song
     </button>
     </div>
      </>
     );
+
 }
-export default AddSong;
+export default SongEditor;

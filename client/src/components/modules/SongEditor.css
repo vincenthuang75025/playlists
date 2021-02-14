@@ -1,0 +1,67 @@
+.SongEditor-button {
+    background-color: transparent;
+    color: black;
+    width: 0.5;
+    font-size: 20px;
+    border-radius: 10px;
+    outline: none;
+}
+
+.SongEditor-button:hover {
+    cursor: pointer;
+    background-color: gray;
+}
+
+.SongEditor-wrapper {
+    font-size: 20px;
+    width: 40%;
+    position: relative;
+    left: 30%;
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.SongEditor-form {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.SongEditor-elem {
+    position: relative;
+    left: 10%;
+}
+
+.SongEditor-wide {
+    width: 85%;
+    margin: 10px 0px 0px 0px;
+}
+
+.SongEditor-right {
+    position: relative;
+    right: 0%;
+    margin: 50px 0px;
+}
+
+.SongEditor-small {
+    width: 30%;
+    position: relative;
+    left: 70%;
+    margin: 10px 0px 0px 0px;
+}
+
+.SongEditor-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0px 0px 0px;
+}
+
+.SongEditor-hoverRed:hover {
+    background-color: pink;
+}
+
+.SongEditor-error {
+    color: red;
+    font-size: 12px;
+}

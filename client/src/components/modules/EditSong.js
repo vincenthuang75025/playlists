@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 
 import "../../utilities.css";
 import "./EditSong.css";
+import SongEditor from "./SongEditor.js";
 import { get, post } from "../../utilities";
 
 /**
@@ -19,6 +20,7 @@ const EditSong = (props) => {
     const songSearch = (songName) => {
         get("/api/findsong", {googleid: props.userId, name: songName}).then((song) => {
             console.log(song);
+            setSong(song);
             setFound(true);
             setErrorMsg("");
         }).catch((error) => {
@@ -50,7 +52,7 @@ const EditSong = (props) => {
     <> 
     <div className="EditSong-wrapper">
         <div className="EditSong-error">{errorMsg}</div>
-        {found ? <div>test</div> : <div>test2</div>}
+        {found ? <SongEditor userId={props.userId} song={song}/> : <div>test2</div>}
         <form className="EditSong-form">
             <input id="name" onChange={handleChange} placeholder="Search for song name" className="EditSong-wide"/>
             <button type="submit" value="Submit" className="EditSong-button" onClick={handleSubmit}>Search</button>

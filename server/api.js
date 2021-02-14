@@ -68,6 +68,14 @@ router.post("/newsong", (req,res) => {
   newSong.save().then((newSong) => res.send(newSong));
 })
 
+router.post("/replacesong", (req, res) => {
+  const newSong = new Song(req.body.new);
+  Song.findByIdAndDelete(req.body.old).then((blah) => {
+      newSong.save().then((newSong) => res.send(newSong));
+    }
+  );
+})
+
 router.all("*", (req, res) => {
   console.log(`API route not found: ${req.method} ${req.url}`);
   res.status(404).send({ msg: "API route not found" });
