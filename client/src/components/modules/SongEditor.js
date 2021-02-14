@@ -8,6 +8,7 @@ import { get, post, trunc} from "../../utilities";
  * The song and category organizer.
  * @param {String} userId of the user
  * @param {JSON} song of the user
+ * @param {function} updateStatus to re-update status
  */
 const SongEditor = (props) => {
     const [attrs, setAttrs] = useState([]);
@@ -40,6 +41,7 @@ const SongEditor = (props) => {
         // delete song at some point
         post("/api/replacesong", {old: props.song._id, new: q}).then((resp) => {
             console.log(resp);
+            props.updateStatus();
         });
         setValues({});
         setAttr("None");

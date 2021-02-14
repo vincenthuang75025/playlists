@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useCallback} from "react";
 
 import "../../utilities.css";
 import "./EditSong.css";
 import SongEditor from "./SongEditor.js";
 import { get, post } from "../../utilities";
+import YouTube from "react-youtube";
 
 /**
  * The song and category organizer.
@@ -32,8 +33,9 @@ const EditSong = (props) => {
 
     const randomSong = () => {
         get("/api/randomsong", {googleid: props.userId}).then((song) => {
+            console.log(song[0]);
+            setSong(song[0]);
             setFound(true);
-            setSong(song);
         })
     }
 
@@ -48,17 +50,41 @@ const EditSong = (props) => {
         document.getElementById("name").value="";
     }
 
+    const updateStatus = useCallback(
+        () => {
+            setFound(false);
+        }, 
+        [],
+    );
+
+    const getId = (url) => {
+        let arr = url.split('/');
+        let end = arr[arr.length-1];
+        return(end.substring(end.length-11,end.length));
+
+    }
+
     return (
     <> 
     <div className="EditSong-wrapper">
         <div className="EditSong-error">{errorMsg}</div>
-        {found ? <SongEditor userId={props.userId} song={song}/> : <div>test2</div>}
+        {found ? <>
+        <div className="EditSong-form">
+        <div>
+            <div>Name: {song.name}</div>
+            <div>Artist: {song.Artist}</div>
+        </div>
+        <YouTube videoId={getId(song.url)} opts={{width: '240', height: '135'}}/>
+        </div>
+        <SongEditor userId={props.userId} song={song}  updateStatus={updateStatus}/></> : <>
         <form className="EditSong-form">
             <input id="name" onChange={handleChange} placeholder="Search for song name" className="EditSong-wide"/>
             <button type="submit" value="Submit" className="EditSong-button" onClick={handleSubmit}>Search</button>
         </form>
         <div className="u-textCenter">or...</div>
         <button className="EditSong-button" onClick={randomSong}>Update a random song!</button>
+        </>
+        }
     </div>
     </>
     );
