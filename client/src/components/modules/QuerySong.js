@@ -16,6 +16,7 @@ const QuerySong = (props) => {
     const [values, setValues] = useState([]);
     const [comp, setComp] = useState("None");
     const [attrTypes, setAttrTypes] = useState({});
+    const [errorMsg, setErrorMsg] = useState("");
 
 
     useEffect(() => {
@@ -43,6 +44,15 @@ const QuerySong = (props) => {
         if (attr !== "None" && comp != "None" && value != "") {
             if (attrTypes[tempAttr] === "String") {
                 setValues([...values, [tempAttr, comp, value]]);
+            }
+            else if (!isNaN(Number(value))) {
+                setValues([...values, [tempAttr, comp, Number(value)]]);
+            }
+            if (attrTypes[tempAttr] === "Numerical" && isNaN(Number(value))) {
+                setErrorMsg("Can't compare non-numerical values to numerical attributes");
+            }
+            else {
+                setErrorMsg("");
                 setAttr("None");
                 setComp("None");
                 setValue("");
@@ -50,17 +60,9 @@ const QuerySong = (props) => {
                 document.getElementById("comp").value="None";
                 document.getElementById("attrValue").value="";
             }
-            else {
-                if (!isNaN(Number(value))) {
-                    setValues([...values, [tempAttr, comp, Number(value)]]);
-                    setAttr("None");
-                    setComp("None");
-                    setValue("");
-                    document.getElementById("attr").value="None";
-                    document.getElementById("comp").value="None";
-                    document.getElementById("attrValue").value="";
-                }
-            }
+        }
+        else {
+            setErrorMsg("Must have non-empty attribute, comparator, and value");
         }
     }
 
@@ -87,6 +89,7 @@ const QuerySong = (props) => {
     return (
     <>
     <div className="QuerySong-wrapper">
+    <div className="QuerySong-error">{errorMsg}</div>
     <form className="QuerySong-form">
         <div className="QuerySong-row">
             <label>Choose an attribute to describe: </label>

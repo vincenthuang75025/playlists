@@ -60,3 +60,8 @@
 .QuerySong-hoverRed:hover {
     background-color: pink;
 }
+
+.QuerySong-error {
+    color: red;
+    font-size: 12px;
+}

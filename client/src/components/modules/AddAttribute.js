@@ -14,6 +14,7 @@ const AddAttribute = (props) => {
     const [toggle, setToggle] = useState(true); // to make sure we don't sort / fetch too much
     const [type, setType] = useState("String");
     const [attrTypes, setAttrTypes] = useState([]);
+    const [errorMsg, setErrorMsg] = useState("");
 
     const forbidden = ["name", "url", "Artist"];
 
@@ -35,6 +36,16 @@ const AddAttribute = (props) => {
                 setType("String");
                 setToggle(!toggle);
             });
+            setErrorMsg("");
+        }
+        else if (name.length === 0) {
+            setErrorMsg("Attribute name can't be empty!")
+        }
+        else if (attrs.indexOf(name) !== -1) {
+            setErrorMsg("Attribute of that name already exists!")
+        }
+        else {
+            setErrorMsg("Can't make attributes named 'artist', 'name', and 'url'.")
         }
     }
 
@@ -49,6 +60,7 @@ const AddAttribute = (props) => {
     return (
     <>
     <div className="AddAttribute-wrapper">
+    <div className="AddAttribute-error">{errorMsg}</div>
     <form className="AddAttribute-form">
         <input text="Test" id="attribute" onChange={handleNameChange} placeholder="Add new attribute!"/>
         <select name="type" id="type" onChange={handleTypeChange}>

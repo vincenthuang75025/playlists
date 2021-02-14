@@ -70,8 +70,6 @@ const AddSong = (props) => {
 
     const handleValueSubmit = (event) => {
         event.preventDefault();
-        console.log(attr);
-        console.log(attrTypes[attr]);
         if (attr !== "None") {
             if (attrTypes[attr] === "String") {
                 setValues({...values, [attr]: value});

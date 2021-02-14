@@ -41,3 +41,8 @@
 .AddAttribute-scroll:hover {
     background-color: lightgray;
 }
+
+.AddAttribute-error {
+    color: red;
+    font-size: 12px;
+}
