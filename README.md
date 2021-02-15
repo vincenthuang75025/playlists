@@ -20,8 +20,6 @@ logout screens for each page
 
 basic css remake, esp fonts and colors
 
-social aspect / sharing
-
 some legend for users to remember how they want to use categories?
 
 import from eg. spotify or other lists, but how to get attrs? ml oof
