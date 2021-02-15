@@ -8,7 +8,8 @@
 */
 
 const express = require("express");
-const crypto = require("crypto-random-string");
+// const crypto = require("crypto-random-string");
+const crypto2 = require("crypto");
 
 // import models so we can interact with the database
 const User = require("./models/user");
@@ -83,7 +84,7 @@ router.get("/finduser", (req, res) => {
       res.send(user);
     }
     else {
-      User.findByIdAndUpdate(req.query.id, {publicid: crypto({length: 20})}).then((user2) => 
+      User.findByIdAndUpdate(req.query.id, {publicid: crypto2.randomBytes(16).toString("hex")}).then((user2) => 
         {
           User.findById(req.query.id).then((user3) => res.send(user3));
         }
