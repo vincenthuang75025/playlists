@@ -92,6 +92,10 @@ router.get("/finduser", (req, res) => {
   })
 })
 
+router.post("/getuser", (req, res) => {
+  User.findOne({publicid: req.body.publicid}).then((user) => res.send(user));
+})
+
 router.post("/makepublicid", (req, res) => {
   User.findByIdAndUpdate(req.body.id, {publicid: req.body.publicid}).then((user) => res.send(user));
 })

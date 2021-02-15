@@ -1,0 +1,35 @@
+.Share-wrapper {
+    font-size: 20px;
+    width: 60%;
+    position: relative;
+    left: 20%;
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Share-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.Share-button {
+    background-color: transparent;
+    color: black;
+    width: 0.5;
+    font-size: 20px;
+    border-radius: 10px;
+    outline: none;
+}
+
+.Share-button:hover {
+    cursor: pointer;
+    background-color: gray;
+}
+
+.Share-error {
+    color: red;
+    font-size: 12px;
+}
