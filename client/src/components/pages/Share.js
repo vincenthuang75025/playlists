@@ -47,12 +47,14 @@ const Share = (props) => {
     <>
     <div className="Share-wrapper">
         <div className="Share-error">{errorMsg}</div>
-        {props.userId ? <div>Your public id is {id}; share with your friends so they can view your songs!</div> : <div/> }
+        {props.userId ? <div className="Share-wide">Your public id is {id}; share with your friends so they can view your songs!</div> : <div/> }
         {userid ? <Listen userId={userid}/> : 
+        <div className="Share-wide">
+        <div>Ask a friend for their public id to get access to their music!</div>
         <form className="Share-form">
             <input placeholder="Friend's public id" onChange={handleChange}/>
             <button className="Share-button" type="submit" value="Submit" onClick={handleSubmit}>Submit!</button>
-        </form>}
+        </form></div>}
     </div>
      </>
     );

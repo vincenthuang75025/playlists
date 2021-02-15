@@ -1,11 +1,17 @@
 .Share-wrapper {
     font-size: 20px;
-    width: 60%;
+    width: 80%;
     position: relative;
-    left: 20%;
+    left: 10%;
     margin: 20px 0px;
     display: flex;
     flex-direction: column;
+}
+
+.Share-wide {
+    position: relative;
+    width: 60%;
+    left: 20%;
 }
 
 .Share-form {
