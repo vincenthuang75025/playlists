@@ -28,11 +28,11 @@ const NavBar = (props) => {
               Listen
             </Link>
           )}
-          {/* {props.userId && (
-            <Link to="/data" className="NavBar-link">
-              Analytics
+          {props.userId && (
+            <Link to="/share" className="NavBar-link">
+              Share
             </Link>
-          )} */}
+          )}
           {props.userId && (
             <Link to="/import" className="NavBar-link">
               Import from x

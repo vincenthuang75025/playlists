@@ -43,11 +43,6 @@ const SongEditor = (props) => {
             console.log(resp);
             props.updateStatus();
         });
-        setValues({});
-        setAttr("None");
-        setValue("");
-        document.getElementById("attr").value="None";
-        document.getElementById("attrValue").value="";
     }
 
     const handleValueChange = (event) => {

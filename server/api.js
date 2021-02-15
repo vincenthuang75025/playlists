@@ -8,6 +8,7 @@
 */
 
 const express = require("express");
+const crypto = require("crypto-random-string");
 
 // import models so we can interact with the database
 const User = require("./models/user");
@@ -70,10 +71,29 @@ router.post("/newsong", (req,res) => {
 
 router.post("/replacesong", (req, res) => {
   const newSong = new Song(req.body.new);
-  Song.findByIdAndDelete(req.body.old).then((blah) => {
+  Song.findByIdAndDelete(req.body.old).then(() => {
       newSong.save().then((newSong) => res.send(newSong));
     }
   );
+})
+
+router.get("/finduser", (req, res) => {
+  User.findById(req.query.id).then((user) => {
+    if (user.publicid) {
+      res.send(user);
+    }
+    else {
+      User.findByIdAndUpdate(req.query.id, {publicid: crypto({length: 20})}).then((user2) => 
+        {
+          User.findById(req.query.id).then((user3) => res.send(user3));
+        }
+      );
+    }
+  })
+})
+
+router.post("/makepublicid", (req, res) => {
+  User.findByIdAndUpdate(req.body.id, {publicid: req.body.publicid}).then((user) => res.send(user));
 })
 
 router.all("*", (req, res) => {

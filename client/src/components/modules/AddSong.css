@@ -34,7 +34,7 @@
 }
 
 .AddSong-wide {
-    width: 85%;
+    width: 100% - 20px;
     margin: 10px 0px 0px 0px;
 }
 

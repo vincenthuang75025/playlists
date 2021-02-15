@@ -6,6 +6,7 @@ import Organizer from "./pages/Organizer.js";
 import NavBar from "./modules/NavBar.js";
 import Listen from "./pages/Listen.js";
 import Import from "./pages/Import.js";
+import Share from "./pages/Share.js";
 
 import "../utilities.css";
 
@@ -65,6 +66,10 @@ const App = () => {
         />
         <Import
           path="/import"
+          userId={userId}
+        />
+        <Share 
+          path="/share"
           userId={userId}
         />
         <NotFound default />

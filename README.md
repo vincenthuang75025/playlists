@@ -18,21 +18,21 @@ logout screens for each page
 
 ## Non-urgent additions
 
-edit songs - search or randomize
-
 basic css remake, esp fonts and colors
 
 social aspect / sharing
 
 some legend for users to remember how they want to use categories?
 
-cap playlist number? select 1? etc.
-
-import from eg. spotify or other lists, but how to get attrs?
+import from eg. spotify or other lists, but how to get attrs? ml oof
 
 better names and descriptions for forms probably
 
+some sort of visualization of your songs, beyond just a querier. use for listen and share
+
 ## Very non-urgent
+
+cap playlist number? select 1? do we even want this? 
 
 sanitize forms, yt links, etc.
 
@@ -43,3 +43,5 @@ yt search, keyword search in general? simulate yt but only if thats a good thing
 scroll in the attributes dropdowns, or search? 
 
 try netlify or something
+
+better song updating
