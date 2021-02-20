@@ -58,7 +58,7 @@ router.post("/newattribute", (req, res) => {
 });
 
 router.get("/randomsong", (req, res) => {
-  Song.aggregate([{$sample: {size: 1}}]).then((song) => res.send(song));
+  Song.aggregate([{$sample: {size: 1}}, {$match: {googleid: req.query.googleid}}]).then((song) => res.send(song));
 })
 
 router.get("/findsong", (req, res) => {

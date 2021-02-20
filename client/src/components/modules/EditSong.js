@@ -3,7 +3,7 @@ import React, {useState, useCallback} from "react";
 import "../../utilities.css";
 import "./EditSong.css";
 import SongEditor from "./SongEditor.js";
-import { get, post } from "../../utilities";
+import {get} from "../../utilities";
 import YouTube from "react-youtube";
 
 /**
@@ -25,7 +25,7 @@ const EditSong = (props) => {
             setFound(true);
             setErrorMsg("");
         }).catch((error) => {
-            console.log(error)
+            console.log(error);
             setErrorMsg("Couldn't find song of that name");
             }
         );
@@ -33,10 +33,15 @@ const EditSong = (props) => {
 
     const randomSong = () => {
         get("/api/randomsong", {googleid: props.userId}).then((song) => {
-            console.log(song[0]);
-            setSong(song[0]);
-            setFound(true);
-        })
+            if (song[0] === undefined) {
+                setErrorMsg("You have no songs yet");
+            }
+            else {
+                setSong(song[0]);
+                setFound(true);
+                setErrorMsg("");
+            }
+        });
     }
 
     const handleChange = (event) => {

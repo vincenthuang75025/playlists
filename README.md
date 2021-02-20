@@ -16,11 +16,15 @@ comment out irrelevant stuff, etc. add link to readme, git button
 
 logout screens for each page
 
+how do we explore new music? how do we visualize? 
+
+massive crypto vulnerability
+
+some legend for users to remember how they want to use categories?
+
 ## Non-urgent additions
 
 basic css remake, esp fonts and colors
-
-some legend for users to remember how they want to use categories?
 
 import from eg. spotify or other lists, but how to get attrs? ml oof
 
@@ -28,11 +32,17 @@ better names and descriptions for forms probably
 
 some sort of visualization of your songs, beyond just a querier. use for listen and share
 
+expose artist, name to search
+
+null playlists
+
+export playlists?!? even if import is hard
+
 ## Very non-urgent
 
-cap playlist number? select 1? do we even want this? 
-
 sanitize forms, yt links, etc.
+
+import playlists
 
 saving recent/fav queries
 
