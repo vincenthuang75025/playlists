@@ -19,7 +19,7 @@ const EditSong = (props) => {
 
 
     const songSearch = (songName) => {
-        get("/api/findsong", {googleid: props.userId, name: songName}).then((song) => {
+        get("/api/findsong", {googleid: props.userId, Name: songName}).then((song) => {
             console.log(song);
             setSong(song);
             setFound(true);

@@ -21,6 +21,8 @@ const QuerySong = (props) => {
 
     useEffect(() => {
         get("/api/attributes", {googleid: props.userId}).then((attributes) => {
+            attributes = [...attributes, {'type': 'String', 'attribute': 'Artist'}, {'type': 'String', 'attribute': 'Name'}];
+            console.log(attributes);
             let types = {};
             attributes.forEach((item, _) => types[item["attribute"]] = item["type"]);
             setAttrTypes(types);

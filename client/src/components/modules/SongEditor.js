@@ -29,12 +29,12 @@ const SongEditor = (props) => {
     }, []);
 
     useEffect(() => {
-        const {googleid: remove1, url: remove2, Artist: remove3, name: remove4, _id: remove5, __v: remove6, ...rest} = props.song;
+        const {googleid: remove1, url: remove2, Artist: remove3, Name: remove4, _id: remove5, __v: remove6, ...rest} = props.song;
         setValues(rest);
     }, [])
 
     const handleSubmit = () => {
-        let q = {'googleid': props.userId, 'url': props.song.url, 'name': props.song.name, 'artist': props.song.Artist};
+        let q = {'googleid': props.userId, 'url': props.song.url, 'Name': props.song.name, 'artist': props.song.Artist};
         for (var item in values) {
             q[item] = values[item];
         }

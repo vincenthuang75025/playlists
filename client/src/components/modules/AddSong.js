@@ -32,7 +32,7 @@ const AddSong = (props) => {
 
     const handleSubmit = () => {
         if (url.length !== 0 && name.length !== 0 && artist.length !== 0) {
-            let q = {'googleid': props.userId, 'url': url, 'name': name, 'artist': artist};
+            let q = {'googleid': props.userId, 'url': url, 'Name': name, 'Artist': artist};
             for (var item in values) {
                 q[item] = values[item];
             }

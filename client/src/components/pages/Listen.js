@@ -68,7 +68,7 @@ const Listen = (props) => {
                     let nameList = [];
                     for(const i in songs) {
                         urlList = [...urlList, songs[i].url];
-                        nameList = [...nameList, songs[i].name];
+                        nameList = [...nameList, songs[i].Name];
                     }
                     setUrls(urlList);
                     setNames(nameList);

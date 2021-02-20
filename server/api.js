@@ -62,7 +62,7 @@ router.get("/randomsong", (req, res) => {
 })
 
 router.get("/findsong", (req, res) => {
-  Song.findOne({googleid: req.query.googleid, name: req.query.name}).then((song) => res.send(song));
+  Song.findOne({googleid: req.query.googleid, Name: req.query.Name}).then((song) => res.send(song));
 })
 
 router.post("/newsong", (req,res) => {

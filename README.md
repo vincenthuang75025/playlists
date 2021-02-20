@@ -14,11 +14,9 @@ lots of onboarding, decide what main page is
 
 comment out irrelevant stuff, etc. add link to readme, git button
 
-logout screens for each page
+logout screens for each page should look nice too
 
-how do we explore new music? how do we visualize? 
-
-massive crypto vulnerability
+how do we explore new music? 
 
 some legend for users to remember how they want to use categories?
 
@@ -26,19 +24,19 @@ some legend for users to remember how they want to use categories?
 
 basic css remake, esp fonts and colors
 
-import from eg. spotify or other lists, but how to get attrs? ml oof
+import from eg. spotify or other lists, but how to get attrs?
 
 better names and descriptions for forms probably
 
 some sort of visualization of your songs, beyond just a querier. use for listen and share
-
-expose artist, name to search
 
 null playlists
 
 export playlists?!? even if import is hard
 
 ## Very non-urgent
+
+see if artist, name in search query should be top options? 
 
 sanitize forms, yt links, etc.
 

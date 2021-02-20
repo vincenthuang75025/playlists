@@ -16,7 +16,7 @@ const AddAttribute = (props) => {
     const [attrTypes, setAttrTypes] = useState([]);
     const [errorMsg, setErrorMsg] = useState("");
 
-    const forbidden = ["name", "url", "Artist"];
+    const forbidden = ["Name", "url", "Artist"];
 
     useEffect(() => {
         get("/api/attributes", {googleid: props.userId}).then((attributes) => {
