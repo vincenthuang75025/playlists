@@ -16,6 +16,7 @@ const Listen = (props) => {
     const [ind, setInd] = useState(0);
     const [vidId, setVidId] = useState("");
     const [names, setNames] = useState([]);
+    const [errorMsg, setErrorMsg] = useState("");
 
     useEffect(() => {
         if (urls.length > 0) {
@@ -62,16 +63,22 @@ const Listen = (props) => {
                         break;
                     }
                 }
-                setReady(true);
                 post("/api/findsongs", q).then((songs) => {
-                    let urlList = [];
-                    let nameList = [];
-                    for(const i in songs) {
-                        urlList = [...urlList, songs[i].url];
-                        nameList = [...nameList, songs[i].Name];
+                    if (songs.length === 0) {
+                        setErrorMsg("No songs match this query");
                     }
-                    setUrls(urlList);
-                    setNames(nameList);
+                    else {
+                        setReady(true);
+                        setErrorMsg("");
+                        let urlList = [];
+                        let nameList = [];
+                        for(const i in songs) {
+                            urlList = [...urlList, songs[i].url];
+                            nameList = [...nameList, songs[i].Name];
+                        }
+                        setUrls(urlList);
+                        setNames(nameList);
+                    }
                 });
             }
         },
@@ -83,7 +90,7 @@ const Listen = (props) => {
     <>
     {
         {
-          false: <QuerySong userId={props.userId} handleQuerySubmit={handleQuerySubmit}/>,
+          false: <QuerySong userId={props.userId} handleQuerySubmit={handleQuerySubmit} errorMsg={errorMsg}/>,
           true: <>
           <div className="Listen-wrapper">
             <div>

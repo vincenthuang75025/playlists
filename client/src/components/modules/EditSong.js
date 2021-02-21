@@ -83,7 +83,7 @@ const EditSong = (props) => {
         </div>
         <SongEditor userId={props.userId} song={song}  updateStatus={updateStatus}/></> : <>
         <form className="EditSong-form">
-            <input id="name" onChange={handleChange} placeholder="Search for song name" className="EditSong-wide"/>
+            <input id="name" onChange={handleChange} placeholder="Song name" className="EditSong-wide"/>
             <button type="submit" value="Submit" className="EditSong-button" onClick={handleSubmit}>Search</button>
         </form>
         <div className="u-textCenter">or...</div>

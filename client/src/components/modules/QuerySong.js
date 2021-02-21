@@ -9,6 +9,7 @@ import Legend from "./Legend.js";
  * The song and category organizer.
  * @param {String} userId of the user
  * @param {func} handleQuerySubmit callback function
+ * @param {String} errorMsg to display
  */
 const QuerySong = (props) => {
     const [attrs, setAttrs] = useState([]);
@@ -76,7 +77,7 @@ const QuerySong = (props) => {
         let newVals = [];
         for (let i=0; i < values.length; i++) {
             if (!(i=== ind)) {
-                newVals = [...newVals, values[ind]];
+                newVals = [...newVals, values[i]];
             }
         }
         setValues(newVals);
@@ -105,7 +106,7 @@ const QuerySong = (props) => {
         <div className="u-flexColumn">
             <div className="QuerySong-row">
                 <label>Comparison value: </label>
-                <input id="attrValue" onChange={handleValueChange} placeholder="Put value here"/>
+                <input id="attrValue" onChange={handleValueChange} placeholder="Value to compare with"/>
             </div>
             <button type="submit" value="Submit" className="QuerySong-button QuerySong-small" onClick={handleValueSubmit}>
                 Submit Condition
@@ -121,6 +122,7 @@ const QuerySong = (props) => {
     <button type="submit" value="Submit" className="QuerySong-button QuerySong-right" onClick={(event) => props.handleQuerySubmit(event, values, props.userId)}>
         Submit Query
     </button>
+    <div className="QuerySong-error">{props.errorMsg}</div>
     <Legend userId={props.userId}/>
     </div>
      </>

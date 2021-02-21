@@ -70,12 +70,12 @@ const AddAttribute = (props) => {
     <div className="AddAttribute-wrapper">
     <div className="AddAttribute-error">{errorMsg}</div>
     <form className="AddAttribute-form">
-        <input className="AddAttribute-formitem" text="Test" id="attribute" onChange={handleNameChange} placeholder="Add new attribute!"/>
+        <input className="AddAttribute-formitem" text="Test" id="attribute" onChange={handleNameChange} placeholder="Attribute name"/>
         <select className="AddAttribute-formitem" name="type" id="type" onChange={handleTypeChange}>
             <option key={-1} value="String">String</option>
             <option key={-2} value="Numerical">Numerical</option>
         </select>
-        <input className="AddAttribute-formitem" id="description" onChange={handleDescChange} placeholder="Describe the attribute"/>
+        <input className="AddAttribute-formitem" id="description" onChange={handleDescChange} placeholder="Attribute description"/>
         <button className="AddAttribute-formitem" type="submit" value="Submit" className="AddAttribute-button" onClick={handleSubmit}>
               Submit
         </button>

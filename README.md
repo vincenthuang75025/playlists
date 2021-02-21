@@ -6,31 +6,29 @@ a) You have pop songs, and you have Chinese songs, but you want to listen to son
 
 b) You rate songs by varying levels of sadness, and at any point might want to eg. listen to all songs of sadness > 6/10. 
 
-In situations like these, it makes sense to rate songs on a bunch of attributes, and allow playlists to be queries against these attributes rather than fixed collections of music. 
+In situations like these, it makes sense to rate songs on a bunch of attributes, and allow playlists to be queries against these attributes rather than fixed collections of music. Feel free to contribute! 
+
+[Link to current deployment](https://song-select.herokuapp.com/)
 
 ## Somewhat urgent
 
 lots of onboarding, decide what main page is
 
-comment out irrelevant stuff, etc. add link to readme, git button
+comment out irrelevant stuff, etc. git button
 
 logout screens for each page should look nice too
 
 how do we explore new music? 
 
-some legend for users to remember how they want to use categories?
-
 make things less case-sensitive to be less annoying for users
 
 ## Non-urgent additions
 
-edit attr descriptions? also display them everywhere
+edit attr descriptions? 
 
 basic css remake, esp fonts and colors
 
 import from eg. spotify or other lists, but how to get attrs?
-
-better names and descriptions for forms probably
 
 some sort of visualization of your songs, beyond just a querier. use for listen and share
 

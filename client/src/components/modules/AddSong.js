@@ -113,9 +113,9 @@ const AddSong = (props) => {
     <>
     <div className="AddSong-wrapper">
     <div className="AddSong-error">{errorMsg}</div>
-    <input id="url" onChange={handleUrlChange} placeholder="Paste youtube url here" className="AddSong-wide"/>
-    <input id="name" onChange={handleNameChange} placeholder="Name the song" className="AddSong-wide"/>
-    <input id="artist" onChange={handleArtistChange} placeholder="Name the artist" className="AddSong-wide"/>
+    <input id="url" onChange={handleUrlChange} placeholder="Youtube url" className="AddSong-wide"/>
+    <input id="name" onChange={handleNameChange} placeholder="Song name" className="AddSong-wide"/>
+    <input id="artist" onChange={handleArtistChange} placeholder="Artist name" className="AddSong-wide"/>
     <form className="AddSong-form">
         <div className="AddSong-row">
             <label>Choose an attribute to describe: </label>
@@ -127,7 +127,7 @@ const AddSong = (props) => {
         <div className="u-flexColumn">
             <div className="AddSong-row">
                 <label>Choose a value to give the attribute: </label>
-                <input id="attrValue" onChange={handleValueChange} placeholder="Put value here"/>
+                <input id="attrValue" onChange={handleValueChange} placeholder="Insert value"/>
             </div>
             <button type="submit" value="Submit" className="AddSong-button AddSong-small" onClick={handleValueSubmit}>
                 Submit Value
