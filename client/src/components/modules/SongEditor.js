@@ -3,6 +3,7 @@ import React, {useState, useEffect} from "react";
 import "../../utilities.css";
 import "./SongEditor.css";
 import { get, post, trunc} from "../../utilities";
+import Legend from "./Legend.js";
 
 /**
  * The song and category organizer.
@@ -115,6 +116,7 @@ const SongEditor = (props) => {
         Submit Song
     </button>
     </div>
+    <Legend userId={props.userId}/>
      </>
     );
 

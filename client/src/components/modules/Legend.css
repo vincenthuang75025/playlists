@@ -1,0 +1,20 @@
+.Legend {
+    font-size: 20px;
+    margin: 20px 0px 0px 0px;
+}
+
+.Legend-elem {
+    position: relative;
+    left: 30%;
+}
+
+.Legend-scroll {
+    height: 100px;
+    position: relative;
+    left: 10px;
+    overflow-y: scroll;
+}
+
+.Legend-scroll:hover {
+    background-color: lightgray;
+}

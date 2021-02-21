@@ -53,6 +53,7 @@ router.post("/newattribute", (req, res) => {
     attribute: req.body.attribute,
     googleid: req.body.googleid,
     type: req.body.type,
+    description: req.body.description,
   });
   newAttr.save().then((newAttr) => res.send(newAttr));
 });

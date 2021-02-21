@@ -20,7 +20,11 @@ how do we explore new music?
 
 some legend for users to remember how they want to use categories?
 
+make things less case-sensitive to be less annoying for users
+
 ## Non-urgent additions
+
+edit attr descriptions? also display them everywhere
 
 basic css remake, esp fonts and colors
 

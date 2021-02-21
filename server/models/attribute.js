@@ -4,6 +4,7 @@ const AttributeSchema = new mongoose.Schema({
   attribute: String,
   googleid: String,
   type: String,
+  description: String,
 });
 
 // compile model from schema

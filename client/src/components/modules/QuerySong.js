@@ -3,6 +3,7 @@ import React, {useState, useEffect} from "react";
 import "../../utilities.css";
 import "./QuerySong.css";
 import { get, trunc} from "../../utilities";
+import Legend from "./Legend.js";
 
 /**
  * The song and category organizer.
@@ -121,6 +122,7 @@ const QuerySong = (props) => {
         Submit Query
     </button>
     </div>
+    <Legend userId={props.userId}/>
      </>
     );
 }
