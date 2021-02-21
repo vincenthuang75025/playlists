@@ -1,0 +1,47 @@
+.EditAttribute-wrapper {
+    position: relative;
+    left: 25%;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.EditAttribute-button {
+    background-color: transparent;
+    color: black;
+    font-size: 20px;
+    border-radius: 10px;
+    outline: none;
+}
+
+.EditAttribute-button:hover {
+    cursor: pointer;
+    background-color: gray;
+}
+
+.EditAttribute-wide {
+    position: relative;
+    width: 100%;
+    font-size: 20px;
+}
+
+.EditAttribute-form {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.EditAttribute-error {
+    color: red;
+    font-size: 12px;
+}
+
+.EditAttribute-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0px;
+}

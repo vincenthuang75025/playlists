@@ -102,6 +102,14 @@ router.post("/makepublicid", (req, res) => {
   User.findByIdAndUpdate(req.body.id, {publicid: req.body.publicid}).then((user) => res.send(user));
 })
 
+router.post("/attributedesc",(req, res) => {
+  Attribute.findOneAndUpdate({googleid: req.body.googleid, attribute: req.body.attribute}, {description: req.body.description}).then(
+    (attr) => {
+      Attribute.find({googleid: req.body.googleid}).then((attr) => res.send(attr));
+    }
+  );
+})
+
 router.all("*", (req, res) => {
   console.log(`API route not found: ${req.method} ${req.url}`);
   res.status(404).send({ msg: "API route not found" });

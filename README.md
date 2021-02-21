@@ -14,9 +14,7 @@ In situations like these, it makes sense to rate songs on a bunch of attributes,
 
 lots of onboarding, decide what main page is
 
-comment out irrelevant stuff, etc. git button
-
-logout screens for each page should look nice too
+add git button / page? 
 
 how do we explore new music? 
 
@@ -24,11 +22,9 @@ make things less case-sensitive to be less annoying for users
 
 ## Non-urgent additions
 
-edit attr descriptions? 
+attr descriptions need to update upon edit
 
-basic css remake, esp fonts and colors
-
-import from eg. spotify or other lists, but how to get attrs?
+basic css remake, esp fonts and colors, consistency among pages
 
 some sort of visualization of your songs, beyond just a querier. use for listen and share
 
@@ -46,7 +42,7 @@ saving recent/fav queries
 
 yt search, keyword search in general? simulate yt but only if thats a good thing
 
-scroll in the attributes dropdowns, or search? 
+scroll in the attributes dropdowns, or search? css for scroll dropdown is bad tho
 
 try netlify or something
 
