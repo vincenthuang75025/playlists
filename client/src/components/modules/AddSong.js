@@ -141,8 +141,8 @@ const AddSong = (props) => {
     <button type="submit" value="Submit" className="AddSong-button AddSong-right" onClick={handleSubmit}>
         Submit Song
     </button>
-    </div>
     <Legend userId={props.userId}/>
+    </div>
      </>
     );
 }

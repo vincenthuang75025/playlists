@@ -121,8 +121,8 @@ const QuerySong = (props) => {
     <button type="submit" value="Submit" className="QuerySong-button QuerySong-right" onClick={(event) => props.handleQuerySubmit(event, values, props.userId)}>
         Submit Query
     </button>
-    </div>
     <Legend userId={props.userId}/>
+    </div>
      </>
     );
 }

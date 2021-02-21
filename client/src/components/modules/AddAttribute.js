@@ -87,7 +87,7 @@ const AddAttribute = (props) => {
         </div>
     </div>
     <div className="AddAttribute-wrapper">Attributes for name, artist, url exist by default and don't need to be added.</div>
-    <Legend userId={props.userId}/>
+    <div className="AddAttribute-wrapper"><Legend userId={props.userId}/></div>
      </>
     );
 }
