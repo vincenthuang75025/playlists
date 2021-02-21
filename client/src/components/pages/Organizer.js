@@ -30,7 +30,7 @@ const Organizer = (props) => {
         }[subject]
       }
       </> : <>
-      <div className="Organizer-container">
+      <div className="u-logout">
         <div>Log in to start managing music!</div>
       </div>
       </>

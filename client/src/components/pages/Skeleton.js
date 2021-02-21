@@ -11,12 +11,14 @@ import "./Skeleton.css";
 const Skeleton = (props) => {
   return (
     <>
+    <div className="u-logout">
       <div>
         Eventually put some demo or tutorial here. 
       </div>
       <div>
         {props.userId ? 'Logged in!' : 'Logged out.'}
       </div>
+    </div>
     </>
   );
 }

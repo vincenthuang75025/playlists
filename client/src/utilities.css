@@ -88,3 +88,8 @@ form {
 .u-link:hover {
   color: var(--primary--dim);
 }
+
+.u-logout {
+  text-align: center;
+  font-size: 20px;
+}

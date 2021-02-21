@@ -12,7 +12,7 @@ const Import = (props) => {
 
     return (
     <>
-    <div>
+    <div className="u-logout">
     Import data from YouTube or Spotify? Coming eventually
     </div>
      </>

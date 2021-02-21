@@ -32,8 +32,6 @@ import from eg. spotify or other lists, but how to get attrs?
 
 some sort of visualization of your songs, beyond just a querier. use for listen and share
 
-null playlists
-
 export playlists?!? even if import is hard
 
 ## Very non-urgent
